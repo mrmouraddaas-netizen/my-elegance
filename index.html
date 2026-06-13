@@ -188,7 +188,7 @@ body.rtl .lang-btn{font-family:var(--font-arabic)}
 
 /* Shop */
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.product-card{position:relative;border-radius:14px;overflow:hidden;transition:transform .3s,box-shadow .3s;border:1px solid var(--border);cursor:default}
+.product-card{position:relative;border-radius:14px;overflow:hidden;transition:transform .3s,box-shadow .3s;border:1px solid rgba(212,175,55,.15);cursor:pointer}
 .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.4)}
 .product-card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--black-3)}
 .product-info{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
@@ -475,6 +475,45 @@ body.rtl .checkout-form input,body.rtl .checkout-form select{font-family:var(--f
   .trainer-overlay{transform:none;opacity:1}
   .info-card:hover,.testimonial-card:hover,.instagram-card:hover{transform:none!important}
 }
+/* Product Detail Overlay */
+.product-detail-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.product-detail-overlay.open{display:flex}
+.product-detail-content{background:var(--black-2);border:1px solid rgba(212,175,55,.15);border-radius:16px;max-width:900px;width:100%;max-height:90dvh;overflow-y:auto;padding:32px;position:relative;animation:fadeIn .3s ease}
+.product-detail-close{position:absolute;top:12px;right:12px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.05);font-size:1.2rem;cursor:pointer;transition:background .3s;color:var(--gray-light)}
+.product-detail-close:hover{background:rgba(212,175,55,.15);color:var(--gold)}
+body.rtl .product-detail-close{right:auto;left:12px}
+.product-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.product-detail-image{border-radius:12px;overflow:hidden;background:var(--black-3);aspect-ratio:1}
+.product-detail-image img{width:100%;height:100%;object-fit:contain;display:block}
+.product-detail-info{display:flex;flex-direction:column;gap:16px}
+.product-detail-name{font-family:var(--font-display);font-size:1.6rem;font-weight:800;line-height:1.2}
+.product-detail-price{font-family:var(--font-display);font-size:1.8rem;font-weight:900;color:var(--gold)}
+.product-detail-desc{color:var(--gray-light);font-size:.95rem;line-height:1.7}
+.product-detail-qty{display:flex;align-items:center;gap:12px;margin-top:4px}
+.product-detail-qty label{font-size:.85rem;font-weight:600;color:var(--gray)}
+.product-detail-qty button{width:36px;height:36px;border-radius:50%;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;cursor:pointer;transition:background .3s;color:var(--gold)}
+.product-detail-qty button:hover{background:rgba(212,175,55,.25)}
+.product-detail-qty span{font-size:1.2rem;font-weight:700;min-width:28px;text-align:center}
+.product-detail-actions{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
+.product-detail-actions .btn{flex:1;min-width:160px;padding:14px 24px;font-size:.95rem}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){
+  .product-detail-content{padding:20px;max-height:95dvh}
+  .product-detail-grid{grid-template-columns:1fr;gap:20px}
+  .product-detail-image{max-width:300px;margin:0 auto}
+  .product-detail-name{font-size:1.3rem}
+  .product-detail-price{font-size:1.4rem}
+  .product-detail-actions .btn{min-width:auto;padding:12px 20px;font-size:.9rem}
+}
+@media(max-width:480px){
+  .product-detail-overlay{padding:8px}
+  .product-detail-content{padding:16px;border-radius:12px}
+  .product-detail-image{max-width:200px}
+  .product-detail-name{font-size:1.1rem}
+  .product-detail-price{font-size:1.2rem}
+  .product-detail-desc{font-size:.88rem}
+  .product-detail-qty button{width:32px;height:32px}
+}
 /* Print Styles */
 @media print{body{background:#fff;color:#000}}
 </style>
@@ -612,16 +651,16 @@ body.rtl .checkout-form input,body.rtl .checkout-form select{font-family:var(--f
 <h2 class="section-title"><span class="gradient-text" data-i18n="products-title">MY ELEGANCE SHOP</span></h2>
 <p class="section-subtitle" data-i18n="products-sub">Découvrez notre collection de montres</p>
 <div class="products-grid">
-<div class="product-card"><img src="assets/images/watches/classic-chrono.jpg" alt="Classic Chronograph" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p1-name">Classic Chronograph</div><div class="p-price" data-i18n="p1-price">45,000 DA</div><button class="p-add" onclick="addToCart(1)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/elegance-gold.jpg" alt="Elegance Gold" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p2-name">Elegance Gold</div><div class="p-price" data-i18n="p2-price">68,000 DA</div><button class="p-add" onclick="addToCart(2)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/sport-pro.jpg" alt="Sport Pro" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p3-name">Sport Pro</div><div class="p-price" data-i18n="p3-price">32,000 DA</div><button class="p-add" onclick="addToCart(3)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/diamond-series.jpg" alt="Diamond Series" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p4-name">Diamond Series</div><div class="p-price" data-i18n="p4-price">120,000 DA</div><button class="p-add" onclick="addToCart(4)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/minimalist-black.jpg" alt="Minimalist Black" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p5-name">Minimalist Black</div><div class="p-price" data-i18n="p5-price">25,000 DA</div><button class="p-add" onclick="addToCart(5)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/ocean-blue.jpg" alt="Ocean Blue Diver" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p6-name">Ocean Blue Diver</div><div class="p-price" data-i18n="p6-price">55,000 DA</div><button class="p-add" onclick="addToCart(6)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/heritage-auto.jpg" alt="Heritage Automatic" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p7-name">Heritage Automatic</div><div class="p-price" data-i18n="p7-price">89,000 DA</div><button class="p-add" onclick="addToCart(7)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/urban-steel.jpg" alt="Urban Steel" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p8-name">Urban Steel</div><div class="p-price" data-i18n="p8-price">38,000 DA</div><button class="p-add" onclick="addToCart(8)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/rose-gold.jpg" alt="Rose Gold Lady" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p9-name">Rose Gold Lady</div><div class="p-price" data-i18n="p9-price">72,000 DA</div><button class="p-add" onclick="addToCart(9)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card"><img src="assets/images/watches/carbon-fiber.jpg" alt="Carbon Fiber X" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p10-name">Carbon Fiber X</div><div class="p-price" data-i18n="p10-price">95,000 DA</div><button class="p-add" onclick="addToCart(10)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(1)"><img src="assets/images/watches/classic-chrono.jpg" alt="Classic Chronograph" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p1-name">Classic Chronograph</div><div class="p-price" data-i18n="p1-price">45,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(1)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(2)"><img src="assets/images/watches/elegance-gold.jpg" alt="Elegance Gold" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p2-name">Elegance Gold</div><div class="p-price" data-i18n="p2-price">68,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(2)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(3)"><img src="assets/images/watches/sport-pro.jpg" alt="Sport Pro" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p3-name">Sport Pro</div><div class="p-price" data-i18n="p3-price">32,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(3)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(4)"><img src="assets/images/watches/diamond-series.jpg" alt="Diamond Series" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p4-name">Diamond Series</div><div class="p-price" data-i18n="p4-price">120,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(4)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(5)"><img src="assets/images/watches/minimalist-black.jpg" alt="Minimalist Black" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p5-name">Minimalist Black</div><div class="p-price" data-i18n="p5-price">25,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(5)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(6)"><img src="assets/images/watches/ocean-blue.jpg" alt="Ocean Blue Diver" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p6-name">Ocean Blue Diver</div><div class="p-price" data-i18n="p6-price">55,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(6)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(7)"><img src="assets/images/watches/heritage-auto.jpg" alt="Heritage Automatic" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p7-name">Heritage Automatic</div><div class="p-price" data-i18n="p7-price">89,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(7)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(8)"><img src="assets/images/watches/urban-steel.jpg" alt="Urban Steel" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p8-name">Urban Steel</div><div class="p-price" data-i18n="p8-price">38,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(8)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(9)"><img src="assets/images/watches/rose-gold.jpg" alt="Rose Gold Lady" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p9-name">Rose Gold Lady</div><div class="p-price" data-i18n="p9-price">72,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(9)" data-i18n="prod-add">Add to Cart</button></div></div>
+<div class="product-card" onclick="showProductDetail(10)"><img src="assets/images/watches/carbon-fiber.jpg" alt="Carbon Fiber X" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p10-name">Carbon Fiber X</div><div class="p-price" data-i18n="p10-price">95,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(10)" data-i18n="prod-add">Add to Cart</button></div></div>
 </div>
 </div>
 </section><!-- Gallery -->
@@ -647,6 +686,31 @@ body.rtl .checkout-form input,body.rtl .checkout-form select{font-family:var(--f
 <img class="glb-img" id="glbImg" src="" alt="" onclick="event.stopPropagation()">
 <button type="button" class="glb-next" onclick="event.stopPropagation();galleryNav(1)">›</button>
 <div class="glb-counter" id="glbCounter"></div>
+</div>
+
+<!-- Product Detail Overlay -->
+<div id="productDetailOverlay" class="product-detail-overlay" onclick="if(event.target===this)closeProductDetail()">
+<div class="product-detail-content">
+<button type="button" class="product-detail-close" onclick="closeProductDetail()">✕</button>
+<div class="product-detail-grid">
+<div class="product-detail-image"><img id="pdImage" src="" alt=""></div>
+<div class="product-detail-info">
+<h1 class="product-detail-name" id="pdName"></h1>
+<div class="product-detail-price" id="pdPrice"></div>
+<p class="product-detail-desc" id="pdDesc"></p>
+<div class="product-detail-qty">
+<label>Quantity:</label>
+<button type="button" id="pdQtyMinus">−</button>
+<span id="pdQtyDisplay">1</span>
+<button type="button" id="pdQtyPlus">+</button>
+</div>
+<div class="product-detail-actions">
+<button type="button" class="btn btn-gold" id="pdAddToCart">Add to Cart</button>
+<button type="button" class="btn btn-outline" onclick="closeProductDetail()">Continue Shopping</button>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <!-- Testimonials -->
@@ -1011,8 +1075,12 @@ document.querySelectorAll('#gallery .gallery-item').forEach((el,i)=>{
   el.addEventListener('click',()=>openGalleryLightbox(i));
 });
 document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('productDetailOverlay').classList.contains('open'))return closeProductDetail();
+    if(document.getElementById('galleryLightbox').classList.contains('active'))closeGalleryLightbox();
+    return;
+  }
   if(!document.getElementById('galleryLightbox').classList.contains('active'))return;
-  if(e.key==='Escape')closeGalleryLightbox();
   if(e.key==='ArrowLeft')galleryNav(-1);
   if(e.key==='ArrowRight')galleryNav(1);
 });
@@ -1203,6 +1271,40 @@ function submitOrder(){
 }
 function closeCartAndReset(){toggleCart();showPage('home')}
 
+// ========== PRODUCT DETAIL ==========
+let pdId=0,pdQty=1;
+function showProductDetail(id){
+  const p=products[id];if(!p)return;
+  pdId=id;pdQty=1;
+  document.getElementById('pdImage').src=p.img;
+  document.getElementById('pdImage').alt=p.name;
+  const lang=document.documentElement.lang;
+  const curr=lang==='ar'?'د.ج':'DZD';
+  document.getElementById('pdName').textContent=getI18n('p'+id+'-name')||p.name;
+  document.getElementById('pdPrice').textContent=fmt(p.price)+' '+curr;
+  document.getElementById('pdDesc').textContent=getI18n('p'+id+'-desc')||'';
+  document.getElementById('pdQtyDisplay').textContent='1';
+  document.getElementById('productDetailOverlay').classList.add('open');
+  lockScroll();
+}
+function closeProductDetail(){
+  document.getElementById('productDetailOverlay').classList.remove('open');
+  unlockScroll();
+}
+document.getElementById('pdQtyMinus').addEventListener('click',()=>{
+  if(pdQty>1)pdQty--;document.getElementById('pdQtyDisplay').textContent=pdQty;
+});
+document.getElementById('pdQtyPlus').addEventListener('click',()=>{
+  pdQty++;document.getElementById('pdQtyDisplay').textContent=pdQty;
+});
+document.getElementById('pdAddToCart').addEventListener('click',()=>{
+  if(!pdId)return;
+  const ex=cart.find(i=>i.id===pdId);
+  if(ex)ex.qty=(ex.qty||1)+pdQty;else cart.push({id:pdId,name:products[pdId].name,price:products[pdId].price,img:products[pdId].img,qty:pdQty});
+  saveCart();renderCart();showToast(getI18n('prod-add')||'Ajouté au panier !');
+  closeProductDetail();
+});
+
 // ========== TOAST ==========
 function showToast(msg){
   const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
@@ -1253,6 +1355,16 @@ const i18n={
      'products-title':'MY ELEGANCE SHOP','products-sub':'Discover our watch collection','prod-add':'Add to Cart',
     'p1-name':'Classic Chronograph','p2-name':'Elegance Gold','p3-name':'Sport Pro','p4-name':'Diamond Series','p5-name':'Minimalist Black','p6-name':'Ocean Blue Diver','p7-name':'Heritage Automatic','p8-name':'Urban Steel','p9-name':'Rose Gold Lady','p10-name':'Carbon Fiber X',
     'fab-about':'About','fab-gallery':'Gallery','fab-contact':'Contact','fab-faq':'FAQ',
+    'p1-desc':'A timeless chronograph with precise quartz movement, stainless steel case, and genuine leather strap.',
+    'p2-desc':'Luxurious gold-plated watch with diamond-cut indices, sapphire crystal, and Swiss quartz movement.',
+    'p3-desc':'Rugged sports watch with 200m water resistance, tachymeter bezel, and durable silicone strap.',
+    'p4-desc':'Exquisite timepiece featuring genuine diamond accents, mother-of-pearl dial, and premium Japanese movement.',
+    'p5-desc':'Ultra-slim minimalist design with matte black finish, scratch-resistant mineral glass, and Japanese quartz movement.',
+    'p6-desc':'Professional 300m dive watch with unidirectional bezel, luminous hands, and helium escape valve.',
+    'p7-desc':'Mechanical automatic watch with exhibition caseback and 42-hour power reserve.',
+    'p8-desc':'Modern stainless steel watch with brushed finish, date window, and 100m water resistance.',
+    'p9-desc':'Elegant ladies watch with rose gold plating, mother-of-pearl dial, and delicate Milanese mesh strap.',
+    'p10-desc':'Ultra-light carbon fiber case with chronograph function and tactical design.',
     'hero-badge':'✨ Luxury Watches','hero-title':'TIME IS<br><span class="gold-text">ELEGANCE</span>',
     'hero-sub':'My Elegance — Authentic luxury watches at the best prices. Discover elegance at every second.',
     'hero-cta1':'Explore','hero-cta2':'Contact Us',
@@ -1291,6 +1403,16 @@ const i18n={
      'products-title':'MY ELEGANCE SHOP','products-sub':'Découvrez notre collection de montres','prod-add':'Ajouter au panier',
     'p1-name':'Chronographe Classique','p2-name':'Élégance Dorée','p3-name':'Sport Pro','p4-name':'Série Diamant','p5-name':'Noir Minimaliste','p6-name':'Plongeuse Océan Bleu','p7-name':'Automatique Heritage','p8-name':'Acier Urbain','p9-name':'Dame Or Rose','p10-name':'Fibre de Carbone X',
     'fab-about':'À propos','fab-gallery':'Galerie','fab-contact':'Contact','fab-faq':'FAQ',
+    'p1-desc':'Un chronographe intemporel avec mouvement à quartz précis, boîtier en acier inoxydable et bracelet en cuir véritable.',
+    'p2-desc':'Montre luxueuse plaquée or avec index diamantés, verre saphir et mouvement suisse à quartz.',
+    'p3-desc':'Montre sportive robuste avec étanchéité 200m, lunette tachymétrique et bracelet silicone durable.',
+    'p4-desc':'Garde-temps exquis avec accents de diamants véritables, cadran en nacre et mouvement japonais premium.',
+    'p5-desc':'Design minimaliste ultra-fin avec finition noire mate, verre minéral résistant et mouvement quartz japonais.',
+    'p6-desc':'Montre de plongée professionnelle 300m avec lunette unidirectionnelle, aiguilles lumineuses et valve hélium.',
+    'p7-desc':'Montre mécanique automatique avec fond transparent et réserve de marche de 42 heures.',
+    'p8-desc':'Montre moderne en acier inoxydable brossé avec guichet dateur et étanchéité 100m.',
+    'p9-desc':'Montre élégante pour femme plaquée or rose avec cadran nacre et bracelet milanais délicat.',
+    'p10-desc':'Boîtier en fibre de carbone ultra-légère avec fonction chronographe et design tactique.',
     'hero-badge':'✨ Montres de Luxe','hero-title':'LE TEMPS<br><span class="gold-text">EST ÉLÉGANCE</span>',
     'hero-sub':'My Elegance — Montres de luxe authentiques au meilleur prix. Découvrez l'élégance à chaque seconde.',
     'hero-cta1':'Explorer','hero-cta2':'Nous Contacter',
@@ -1329,6 +1451,16 @@ const i18n={
      'products-title':'متجر MY ELEGANCE','products-sub':'اكتشف مجموعتنا من الساعات','prod-add':'أضف إلى السلة',
     'p1-name':'كلاسيك كرونوغراف','p2-name':'إليغانس الذهبي','p3-name':'سبورت برو','p4-name':'سلسلة الماس','p5-name':'أسود مينيماليست','p6-name':'غواص الأزرق','p7-name':'هيريتاج أوتوماتيك','p8-name':'أوربان ستيل','p9-name':'روز جولد ليدي','p10-name':'كاربون فايبر إكس',
     'fab-about':'من نحن','fab-gallery':'المعرض','fab-contact':'اتصل بنا','fab-faq':'الأسئلة الشائعة',
+    'p1-desc':'كرونوغراف كلاسيكي خالد بحركة كوارتز دقيقة، هيكل من الفولاذ المقاوم للصدأ وسوار من الجلد الأصلي.',
+    'p2-desc':'ساعة فاخرة مطلية بالذهب مع مؤشرات ماسية، زجاج ياقوتي وحركة كوارتز سويسرية.',
+    'p3-desc':'ساعة رياضية متينة بمقاومة ماء 200م، إطار تاكيمتر وسوار سيليكون متين.',
+    'p4-desc':'ساعة رائعة مع لمسات ماس حقيقي، قرص عرق اللؤلؤ وحركة يابانية ممتازة.',
+    'p5-desc':'تصميم بسيط فائق النحافة مع لمسة نهائية سوداء غير لامعة، زجاج معدني مقاوم للخدش وحركة كوارتز يابانية.',
+    'p6-desc':'ساعة غوص احترافية 300م مع إطار أحادي الاتجاه، عقارب مضيئة وصمام هيليوم.',
+    'p7-desc':'ساعة ميكانيكية أوتوماتيكية مع ظهر شفاف واحتياطي طاقة 42 ساعة.',
+    'p8-desc':'ساعة عصرية من الفولاذ المقاوم للصدأ المصقول مع نافذة تاريخ ومقاومة ماء 100م.',
+    'p9-desc':'ساعة أنيقة للسيدات مطلية بالذهب الوردي مع قرص عرق اللؤلؤ وسوار ميلانيزي رقيق.',
+    'p10-desc':'هيكل ألياف كربون فائق الخفة مع وظيفة كرونوغراف وتصميم تكتيكي.',
     'hero-badge':'✨ ساعات فاخرة','hero-title':'الوقت<br><span class="gold-text">أناقة</span>',
     'hero-sub':'My Elegance — ساعات فاخرة أصلية بأفضل الأسعار. اكتشف الأناقة في كل ثانية.',
     'hero-cta1':'استعرض','hero-cta2':'اتصل بنا',
