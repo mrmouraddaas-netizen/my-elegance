@@ -517,36 +517,48 @@ body.rtl .product-detail-close{right:auto;left:12px}
 /* Print Styles */
 @media print{body{background:#fff;color:#000}}
 /* Landing Page */
-.landing-hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%);position:relative;overflow:hidden;padding:80px 20px 40px}
-.landing-hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(212,175,55,.08) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(212,175,55,.05) 0%,transparent 50%);animation:lpGlow 8s ease-in-out infinite alternate}
-@keyframes lpGlow{0%{transform:translate(0,0)}100%{transform:translate(-5%,-5%)}}
-.landing-content{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:60px;max-width:1100px;width:100%}
-.landing-image{flex:0 0 320px;max-width:320px}
-.landing-image img{width:100%;height:auto;border-radius:20px;box-shadow:0 20px 60px rgba(212,175,55,.15),0 0 40px rgba(212,175,55,.05);transition:transform .5s}
-.landing-image img:hover{transform:scale(1.03)}
-.landing-text{flex:1;min-width:280px;max-width:550px}
-.landing-badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(212,175,55,.15);color:var(--gold);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
-.landing-text h1{font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:12px;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.landing-text .lp-price{font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:12px}
-.landing-text .lp-desc{color:var(--gray);font-size:1.05rem;line-height:1.7;margin-bottom:24px}
-.landing-cta{display:flex;gap:12px;flex-wrap:wrap}
-.landing-cta .btn{padding:14px 32px;font-size:1rem;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:700;transition:all .3s;cursor:pointer;border:none}
-.landing-cta .btn-primary{background:var(--gold-gradient);color:var(--black);box-shadow:0 4px 20px rgba(212,175,55,.3)}
-.landing-cta .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,.4)}
-.landing-cta .btn-secondary{background:transparent;color:var(--gold);border:2px solid rgba(212,175,55,.3)}
-.landing-cta .btn-secondary:hover{border-color:var(--gold);background:rgba(212,175,55,.1)}
-.landing-features{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap}
-.landing-features span{display:flex;align-items:center;gap:6px;color:var(--gray);font-size:.85rem}
-.landing-features span svg{width:16px;height:16px;fill:var(--gold);flex-shrink:0}
-.landing-page .landing-back{position:fixed;top:20px;left:20px;z-index:10;color:var(--gray);text-decoration:none;font-size:.88rem;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.05);backdrop-filter:blur(10px);transition:all .3s}
-.landing-page .landing-back:hover{color:var(--gold);background:rgba(212,175,55,.1)}
+.lp-hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(160deg,#070707 0%,#111 40%,#070707 100%)}
+.lp-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(212,175,55,.06) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(212,175,55,.04) 0%,transparent 60%),radial-gradient(circle at 50% 0%,rgba(212,175,55,.08) 0%,transparent 40%);pointer-events:none}
+.lp-container{position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:100px 24px 60px}
+.lp-hero-inner{display:flex;align-items:center;gap:60px;flex-wrap:wrap;justify-content:center}
+.lp-img-wrap{flex:0 0 340px;position:relative}
+.lp-img-glow{position:absolute;inset:-20px;background:radial-gradient(ellipse at center,rgba(212,175,55,.15) 0%,transparent 70%);border-radius:50%;animation:lpPulse 3s ease-in-out infinite alternate}
+@keyframes lpPulse{0%{opacity:.6;transform:scale(1)}100%{opacity:1;transform:scale(1.05)}}
+.lp-img-wrap img{width:100%;height:auto;border-radius:24px;position:relative;z-index:1;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(212,175,55,.1);transition:transform .5s}
+.lp-img-wrap img:hover{transform:scale(1.02)}
+.lp-text-wrap{flex:1;min-width:300px;max-width:550px}
+.lp-badge{display:inline-block;padding:6px 18px;border-radius:20px;background:rgba(212,175,55,.12);color:#D4AF37;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;border:1px solid rgba(212,175,55,.15)}
+.lp-title{font-size:3rem;font-weight:900;line-height:1.15;margin-bottom:14px;background:linear-gradient(135deg,#D4AF37 0%,#f0d060 40%,#D4AF37 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.lp-price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.lp-price{font-size:2.2rem;font-weight:800;color:#D4AF37}
+.lp-tax{font-size:.82rem;color:#666}
+.lp-desc{color:#aaa;font-size:1.05rem;line-height:1.75;margin:18px 0 28px}
+.lp-cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.lp-btn{padding:14px 28px;font-size:.95rem;border-radius:10px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:700;cursor:pointer;border:none;transition:all .3s}
+.lp-btn-primary{background:#25D366;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.35)}
+.lp-btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.45)}
+.lp-btn-gold{background:linear-gradient(135deg,#D4AF37,#e8c84a);color:#0a0a0a;box-shadow:0 4px 20px rgba(212,175,55,.3)}
+.lp-btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,.4)}
+.lp-features{display:flex;gap:20px;margin-top:32px;flex-wrap:wrap}
+.lp-feat{display:flex;align-items:center;gap:8px;color:#888;font-size:.85rem}
+.lp-feat svg{width:18px;height:18px;fill:#D4AF37;flex-shrink:0}
+.lp-feat span{white-space:nowrap}
+.landing-page .landing-back{position:fixed;top:20px;left:20px;z-index:10;color:#999;text-decoration:none;font-size:.85rem;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.05);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.06);transition:all .3s}
+.landing-page .landing-back:hover{color:#D4AF37;background:rgba(212,175,55,.1);border-color:rgba(212,175,55,.2)}
 @media(max-width:768px){
-  .landing-hero{padding:100px 16px 40px}
-  .landing-content{gap:30px}
-  .landing-image{flex:0 0 220px;max-width:220px}
-  .landing-text h1{font-size:2rem}
-  .landing-text .lp-price{font-size:1.5rem}
-  .landing-cta .btn{padding:12px 24px;font-size:.9rem}
+  .lp-container{padding:80px 16px 40px}
+  .lp-hero-inner{gap:30px}
+  .lp-img-wrap{flex:0 0 240px;max-width:240px}
+  .lp-title{font-size:2rem}
+  .lp-price{font-size:1.6rem}
+  .lp-desc{font-size:.95rem}
+  .lp-btn{padding:12px 22px;font-size:.88rem}
+}
+@media(max-width:480px){
+  .lp-img-wrap{flex:0 0 180px;max-width:180px}
+  .lp-title{font-size:1.6rem}
+  .lp-cta-row{flex-direction:column}
+  .lp-btn{justify-content:center}
 }
 </style>
 </head>
@@ -1217,7 +1229,7 @@ async function loadProducts(){
 function renderLandingPage(id){
   const p=products[id];if(!p){showPage('shop');return}
   const lang=document.documentElement.lang;
-  const curr=lang==='ar'?'د.ج':'DZD';
+  const curr=lang==='ar'?'د.ج':lang==='fr'?'DA':'DZD';
   const name=p['name_'+lang]||p.name;
   const desc=p['desc_'+lang]||'';
   const price=fmt(p.price)+' '+curr;
@@ -1225,26 +1237,23 @@ function renderLandingPage(id){
   const el=document.getElementById('landing-page');
   const wpNum='213554672222';
   const wpMsg=encodeURIComponent('Hello! I am interested in: '+name+' ('+price+')');
-  const svgTruck='<svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>';
-  const svgShield='<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>';
-  const svgReturn='<svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>';
-  el.innerHTML='<a href="#shop" class="landing-back" onclick="showPage(\'shop\')">&larr; Back to Shop</a>'+
-    '<div class="landing-hero"><div class="landing-content">'+
-    '<div class="landing-image"><img src="'+img+'" alt="'+name+'"></div>'+
-    '<div class="landing-text">'+
-    '<div class="landing-badge">'+getI18n('prod-add')||'Featured Product'+'</div>'+
-    '<h1>'+name+'</h1>'+
-    '<div class="lp-price">'+price+'</div>'+
-    '<div class="lp-desc">'+desc+'</div>'+
-    '<div class="landing-cta">'+
-    '<a href="https://wa.me/'+wpNum+'?text='+wpMsg+'" target="_blank" rel="noopener" class="btn btn-primary">Order on WhatsApp</a>'+
-    '<button class="btn btn-secondary" onclick="addToCart('+id+');showToast(getI18n(\'prod-add\')||\'Added!\')">'+getI18n('prod-add')||'Add to Cart'+'</button>'+
-    '</div>'+
-    '<div class="landing-features">'+
-    '<span>'+svgTruck+' Delivery across Algeria</span>'+
-    '<span>'+svgShield+' Authentic products</span>'+
-    '<span>'+svgReturn+' Easy returns</span>'+
-    '</div></div></div></div>';
+  const addTxt=getI18n('prod-add')||'Add to Cart';
+  el.innerHTML='<a href="#" class="landing-back" onclick="showPage(\'shop\')">&#8592; '+(lang==='ar'?'العودة إلى المتجر':lang==='fr'?'Retour à la boutique':'Back to Shop')+'</a>'+
+  '<div class="lp-hero"><div class="lp-hero-bg"></div><div class="lp-container">'+
+  '<div class="lp-hero-inner">'+
+  '<div class="lp-img-wrap"><div class="lp-img-glow"></div><img src="'+img+'" alt="'+name+'"></div>'+
+  '<div class="lp-text-wrap">'+
+  '<div class="lp-badge">'+(lang==='ar'?'منتوج مميز':lang==='fr'?'Produit vedette':'Featured Product')+'</div>'+
+  '<h1 class="lp-title">'+name+'</h1>'+
+  '<div class="lp-price-row"><span class="lp-price">'+price+'</span><span class="lp-tax">'+(lang==='ar'?'شامل الضريبة':lang==='fr'?'TTC':'incl. tax')+'</span></div>'+
+  '<p class="lp-desc">'+desc+'</p>'+
+  '<div class="lp-cta-row"><a href="https://wa.me/'+wpNum+'?text='+wpMsg+'" target="_blank" rel="noopener" class="lp-btn lp-btn-primary">&#128222; '+(lang==='ar'?'اطلب عبر واتساب':lang==='fr'?'Commander sur WhatsApp':'Order on WhatsApp')+'</a>'+
+  '<button class="lp-btn lp-btn-gold" onclick="addToCart('+id+');showToast(\''+addTxt+'\')">'+addTxt+'</button></div>'+
+  '<div class="lp-features">'+
+  '<div class="lp-feat"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg><span>'+(lang==='ar'?'توصيل في جميع أنحاء الجزائر':lang==='fr'?'Livraison partout en Algérie':'Delivery across Algeria')+'</span></div>'+
+  '<div class="lp-feat"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg><span>'+(lang==='ar'?'منتج أصلي ومضمون':lang==='fr'?'Produit authentique et garanti':'Authentic & Guaranteed')+'</span></div>'+
+  '<div class="lp-feat"><svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg><span>'+(lang==='ar'?'إرجاع مجاني خلال 14 يوم':lang==='fr'?'Retour gratuit sous 14 jours':'Free 14-day returns')+'</span></div>'+
+  '</div></div></div></div></div>';
   document.querySelectorAll('.page').forEach(pg=>pg.classList.remove('active'));
   el.classList.add('active');
   window.scrollTo({top:0});
