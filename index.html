@@ -1159,7 +1159,7 @@ async function loadProducts(){
   try{
     const t=Date.now();const r=await fetch('content/products.json?'+t);
     if(!r.ok)throw new Error('Not found');
-    const d=await r.json();loadProductsFromData(d);
+    const d=await r.json();loadProductsFromData(d.products||d);
   }catch(e){
     Object.assign(products,fallbackProducts);
     Object.keys(fallbackProducts).forEach(id=>{

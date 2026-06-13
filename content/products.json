@@ -1,122 +1,124 @@
-[
-  {
-    "id": 1,
-    "active": true,
-    "name_en": "Classic Chronograph",
-    "name_fr": "Chronographe Classique",
-    "name_ar": "كلاسيك كرونوغراف",
-    "price": 45000,
-    "image": "assets/images/watches/classic-chrono.jpg",
-    "desc_en": "A timeless chronograph with precise quartz movement, stainless steel case, and genuine leather strap.",
-    "desc_fr": "Un chronographe intemporel avec mouvement à quartz précis, boîtier en acier inoxydable et bracelet en cuir véritable.",
-    "desc_ar": "كرونوغراف كلاسيكي خالد بحركة كوارتز دقيقة، هيكل من الفولاذ المقاوم للصدأ وسوار من الجلد الأصلي."
-  },
-  {
-    "id": 2,
-    "active": true,
-    "name_en": "Elegance Gold",
-    "name_fr": "Élégance Dorée",
-    "name_ar": "إليغانس الذهبي",
-    "price": 68000,
-    "image": "assets/images/watches/elegance-gold.jpg",
-    "desc_en": "Luxurious gold-plated watch with diamond-cut indices, sapphire crystal, and Swiss quartz movement.",
-    "desc_fr": "Montre luxueuse plaquée or avec index diamantés, verre saphir et mouvement suisse à quartz.",
-    "desc_ar": "ساعة فاخرة مطلية بالذهب مع مؤشرات ماسية، زجاج ياقوتي وحركة كوارتز سويسرية."
-  },
-  {
-    "id": 3,
-    "active": true,
-    "name_en": "Sport Pro",
-    "name_fr": "Sport Pro",
-    "name_ar": "سبورت برو",
-    "price": 32000,
-    "image": "assets/images/watches/sport-pro.jpg",
-    "desc_en": "Rugged sports watch with 200m water resistance, tachymeter bezel, and durable silicone strap.",
-    "desc_fr": "Montre sportive robuste avec étanchéité 200m, lunette tachymétrique et bracelet silicone durable.",
-    "desc_ar": "ساعة رياضية متينة بمقاومة ماء 200م، إطار تاكيمتر وسوار سيليكون متين."
-  },
-  {
-    "id": 4,
-    "active": true,
-    "name_en": "Diamond Series",
-    "name_fr": "Série Diamant",
-    "name_ar": "سلسلة الماس",
-    "price": 120000,
-    "image": "assets/images/watches/diamond-series.jpg",
-    "desc_en": "Exquisite timepiece featuring genuine diamond accents, mother-of-pearl dial, and premium Japanese movement.",
-    "desc_fr": "Garde-temps exquis avec accents de diamants véritables, cadran en nacre et mouvement japonais premium.",
-    "desc_ar": "ساعة رائعة مع لمسات ماس حقيقي، قرص عرق اللؤلؤ وحركة يابانية ممتازة."
-  },
-  {
-    "id": 5,
-    "active": true,
-    "name_en": "Minimalist Black",
-    "name_fr": "Noir Minimaliste",
-    "name_ar": "أسود مينيماليست",
-    "price": 25000,
-    "image": "assets/images/watches/minimalist-black.jpg",
-    "desc_en": "Ultra-slim minimalist design with matte black finish, scratch-resistant mineral glass, and Japanese quartz movement.",
-    "desc_fr": "Design minimaliste ultra-fin avec finition noire mate, verre minéral résistant et mouvement quartz japonais.",
-    "desc_ar": "تصميم بسيط فائق النحافة مع لمسة نهائية سوداء غير لامعة، زجاج معدني مقاوم للخدش وحركة كوارتز يابانية."
-  },
-  {
-    "id": 6,
-    "active": true,
-    "name_en": "Ocean Blue Diver",
-    "name_fr": "Plongeuse Océan Bleu",
-    "name_ar": "غواص الأزرق",
-    "price": 55000,
-    "image": "assets/images/watches/ocean-blue.jpg",
-    "desc_en": "Professional 300m dive watch with unidirectional bezel, luminous hands, and helium escape valve.",
-    "desc_fr": "Montre de plongée professionnelle 300m avec lunette unidirectionnelle, aiguilles lumineuses et valve hélium.",
-    "desc_ar": "ساعة غوص احترافية 300م مع إطار أحادي الاتجاه، عقارب مضيئة وصمام هيليوم."
-  },
-  {
-    "id": 7,
-    "active": true,
-    "name_en": "Heritage Automatic",
-    "name_fr": "Automatique Heritage",
-    "name_ar": "هيريتاج أوتوماتيك",
-    "price": 89000,
-    "image": "assets/images/watches/heritage-auto.jpg",
-    "desc_en": "Mechanical automatic watch with exhibition caseback and 42-hour power reserve.",
-    "desc_fr": "Montre mécanique automatique avec fond transparent et réserve de marche de 42 heures.",
-    "desc_ar": "ساعة ميكانيكية أوتوماتيكية مع ظهر شفاف واحتياطي طاقة 42 ساعة."
-  },
-  {
-    "id": 8,
-    "active": true,
-    "name_en": "Urban Steel",
-    "name_fr": "Acier Urbain",
-    "name_ar": "أوربان ستيل",
-    "price": 38000,
-    "image": "assets/images/watches/urban-steel.jpg",
-    "desc_en": "Modern stainless steel watch with brushed finish, date window, and 100m water resistance.",
-    "desc_fr": "Montre moderne en acier inoxydable brossé avec guichet dateur et étanchéité 100m.",
-    "desc_ar": "ساعة عصرية من الفولاذ المقاوم للصدأ المصقول مع نافذة تاريخ ومقاومة ماء 100م."
-  },
-  {
-    "id": 9,
-    "active": true,
-    "name_en": "Rose Gold Lady",
-    "name_fr": "Dame Or Rose",
-    "name_ar": "روز جولد ليدي",
-    "price": 72000,
-    "image": "assets/images/watches/rose-gold.jpg",
-    "desc_en": "Elegant ladies watch with rose gold plating, mother-of-pearl dial, and delicate Milanese mesh strap.",
-    "desc_fr": "Montre élégante pour femme plaquée or rose avec cadran nacre et bracelet milanais délicat.",
-    "desc_ar": "ساعة أنيقة للسيدات مطلية بالذهب الوردي مع قرص عرق اللؤلؤ وسوار ميلانيزي رقيق."
-  },
-  {
-    "id": 10,
-    "active": true,
-    "name_en": "Carbon Fiber X",
-    "name_fr": "Fibre de Carbone X",
-    "name_ar": "كاربون فايبر إكس",
-    "price": 95000,
-    "image": "assets/images/watches/carbon-fiber.jpg",
-    "desc_en": "Ultra-light carbon fiber case with chronograph function and tactical design.",
-    "desc_fr": "Boîtier en fibre de carbone ultra-légère avec fonction chronographe et design tactique.",
-    "desc_ar": "هيكل ألياف كربون فائق الخفة مع وظيفة كرونوغراف وتصميم تكتيكي."
-  }
-]
+{
+  "products": [
+    {
+      "id": 1,
+      "active": true,
+      "name_en": "Classic Chronograph",
+      "name_fr": "Chronographe Classique",
+      "name_ar": "كلاسيك كرونوغراف",
+      "price": 45000,
+      "image": "assets/images/watches/classic-chrono.jpg",
+      "desc_en": "A timeless chronograph with precise quartz movement, stainless steel case, and genuine leather strap.",
+      "desc_fr": "Un chronographe intemporel avec mouvement à quartz précis, boîtier en acier inoxydable et bracelet en cuir véritable.",
+      "desc_ar": "كرونوغراف كلاسيكي خالد بحركة كوارتز دقيقة، هيكل من الفولاذ المقاوم للصدأ وسوار من الجلد الأصلي."
+    },
+    {
+      "id": 2,
+      "active": true,
+      "name_en": "Elegance Gold",
+      "name_fr": "Élégance Dorée",
+      "name_ar": "إليغانس الذهبي",
+      "price": 68000,
+      "image": "assets/images/watches/elegance-gold.jpg",
+      "desc_en": "Luxurious gold-plated watch with diamond-cut indices, sapphire crystal, and Swiss quartz movement.",
+      "desc_fr": "Montre luxueuse plaquée or avec index diamantés, verre saphir et mouvement suisse à quartz.",
+      "desc_ar": "ساعة فاخرة مطلية بالذهب مع مؤشرات ماسية، زجاج ياقوتي وحركة كوارتز سويسرية."
+    },
+    {
+      "id": 3,
+      "active": true,
+      "name_en": "Sport Pro",
+      "name_fr": "Sport Pro",
+      "name_ar": "سبورت برو",
+      "price": 32000,
+      "image": "assets/images/watches/sport-pro.jpg",
+      "desc_en": "Rugged sports watch with 200m water resistance, tachymeter bezel, and durable silicone strap.",
+      "desc_fr": "Montre sportive robuste avec étanchéité 200m, lunette tachymétrique et bracelet silicone durable.",
+      "desc_ar": "ساعة رياضية متينة بمقاومة ماء 200م، إطار تاكيمتر وسوار سيليكون متين."
+    },
+    {
+      "id": 4,
+      "active": true,
+      "name_en": "Diamond Series",
+      "name_fr": "Série Diamant",
+      "name_ar": "سلسلة الماس",
+      "price": 120000,
+      "image": "assets/images/watches/diamond-series.jpg",
+      "desc_en": "Exquisite timepiece featuring genuine diamond accents, mother-of-pearl dial, and premium Japanese movement.",
+      "desc_fr": "Garde-temps exquis avec accents de diamants véritables, cadran en nacre et mouvement japonais premium.",
+      "desc_ar": "ساعة رائعة مع لمسات ماس حقيقي، قرص عرق اللؤلؤ وحركة يابانية ممتازة."
+    },
+    {
+      "id": 5,
+      "active": true,
+      "name_en": "Minimalist Black",
+      "name_fr": "Noir Minimaliste",
+      "name_ar": "أسود مينيماليست",
+      "price": 25000,
+      "image": "assets/images/watches/minimalist-black.jpg",
+      "desc_en": "Ultra-slim minimalist design with matte black finish, scratch-resistant mineral glass, and Japanese quartz movement.",
+      "desc_fr": "Design minimaliste ultra-fin avec finition noire mate, verre minéral résistant et mouvement quartz japonais.",
+      "desc_ar": "تصميم بسيط فائق النحافة مع لمسة نهائية سوداء غير لامعة، زجاج معدني مقاوم للخدش وحركة كوارتز يابانية."
+    },
+    {
+      "id": 6,
+      "active": true,
+      "name_en": "Ocean Blue Diver",
+      "name_fr": "Plongeuse Océan Bleu",
+      "name_ar": "غواص الأزرق",
+      "price": 55000,
+      "image": "assets/images/watches/ocean-blue.jpg",
+      "desc_en": "Professional 300m dive watch with unidirectional bezel, luminous hands, and helium escape valve.",
+      "desc_fr": "Montre de plongée professionnelle 300m avec lunette unidirectionnelle, aiguilles lumineuses et valve hélium.",
+      "desc_ar": "ساعة غوص احترافية 300م مع إطار أحادي الاتجاه، عقارب مضيئة وصمام هيليوم."
+    },
+    {
+      "id": 7,
+      "active": true,
+      "name_en": "Heritage Automatic",
+      "name_fr": "Automatique Heritage",
+      "name_ar": "هيريتاج أوتوماتيك",
+      "price": 89000,
+      "image": "assets/images/watches/heritage-auto.jpg",
+      "desc_en": "Mechanical automatic watch with exhibition caseback and 42-hour power reserve.",
+      "desc_fr": "Montre mécanique automatique avec fond transparent et réserve de marche de 42 heures.",
+      "desc_ar": "ساعة ميكانيكية أوتوماتيكية مع ظهر شفاف واحتياطي طاقة 42 ساعة."
+    },
+    {
+      "id": 8,
+      "active": true,
+      "name_en": "Urban Steel",
+      "name_fr": "Acier Urbain",
+      "name_ar": "أوربان ستيل",
+      "price": 38000,
+      "image": "assets/images/watches/urban-steel.jpg",
+      "desc_en": "Modern stainless steel watch with brushed finish, date window, and 100m water resistance.",
+      "desc_fr": "Montre moderne en acier inoxydable brossé avec guichet dateur et étanchéité 100m.",
+      "desc_ar": "ساعة عصرية من الفولاذ المقاوم للصدأ المصقول مع نافذة تاريخ ومقاومة ماء 100م."
+    },
+    {
+      "id": 9,
+      "active": true,
+      "name_en": "Rose Gold Lady",
+      "name_fr": "Dame Or Rose",
+      "name_ar": "روز جولد ليدي",
+      "price": 72000,
+      "image": "assets/images/watches/rose-gold.jpg",
+      "desc_en": "Elegant ladies watch with rose gold plating, mother-of-pearl dial, and delicate Milanese mesh strap.",
+      "desc_fr": "Montre élégante pour femme plaquée or rose avec cadran nacre et bracelet milanais délicat.",
+      "desc_ar": "ساعة أنيقة للسيدات مطلية بالذهب الوردي مع قرص عرق اللؤلؤ وسوار ميلانيزي رقيق."
+    },
+    {
+      "id": 10,
+      "active": true,
+      "name_en": "Carbon Fiber X",
+      "name_fr": "Fibre de Carbone X",
+      "name_ar": "كاربون فايبر إكس",
+      "price": 95000,
+      "image": "assets/images/watches/carbon-fiber.jpg",
+      "desc_en": "Ultra-light carbon fiber case with chronograph function and tactical design.",
+      "desc_fr": "Boîtier en fibre de carbone ultra-légère avec fonction chronographe et design tactique.",
+      "desc_ar": "هيكل ألياف كربون فائق الخفة مع وظيفة كرونوغراف وتصميم تكتيكي."
+    }
+  ]
+}
