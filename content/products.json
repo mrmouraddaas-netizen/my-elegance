@@ -11,6 +11,18 @@
       "image": "assets/images/watches/rose-gold.jpg",
       "name_en": "Rose Gold Lady",
       "desc_ar": "ساعة أنيقة للسيدات مطلية بالذهب الوردي مع قرص عرق اللؤلؤ وسوار ميلانيزي رقيق."
+    },
+    {
+      "name_fr": "TSTS",
+      "name_ar": "سفسفسفسف",
+      "active": true,
+      "price": 3199,
+      "desc_en": "TST",
+      "desc_fr": "TST",
+      "id": 4,
+      "image": "assets/images/watches/diamond-series.jpg",
+      "name_en": "TTSST",
+      "desc_ar": "سفف"
     }
   ]
 }
