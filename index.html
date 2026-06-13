@@ -999,6 +999,8 @@ body.rtl .product-detail-close{right:auto;left:12px}
 // ========== PAGE NAVIGATION (SPA) ==========
 const PAGE_IDS = ['shop','about','gallery','testimonials','faq','social','contact-us'];
 function showPage(id){
+  closeProductDetail();
+  if(document.getElementById('galleryLightbox').classList.contains('active'))closeGalleryLightbox();
   closeMobile();closeFab();
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const homePage=document.getElementById('home-page');
@@ -1061,7 +1063,9 @@ function openGalleryLightbox(idx){
   lockScroll();
 }
 function closeGalleryLightbox(){
-  document.getElementById('galleryLightbox').classList.remove('active');
+  const el=document.getElementById('galleryLightbox');
+  if(!el.classList.contains('active'))return;
+  el.classList.remove('active');
   unlockScroll();
 }
 function galleryNav(dir){
@@ -1288,7 +1292,9 @@ function showProductDetail(id){
   lockScroll();
 }
 function closeProductDetail(){
-  document.getElementById('productDetailOverlay').classList.remove('open');
+  const el=document.getElementById('productDetailOverlay');
+  if(!el.classList.contains('open'))return;
+  el.classList.remove('open');
   unlockScroll();
 }
 document.getElementById('pdQtyMinus').addEventListener('click',()=>{
@@ -1342,6 +1348,7 @@ function toggleMobile(){
 }
 function closeMobile(){
   const nav=document.getElementById('mobileNav'),h=document.querySelector('.hamburger');
+  if(!nav.classList.contains('open'))return;
   nav.classList.remove('open');h.classList.remove('active');
   h.setAttribute('aria-expanded','false');
   unlockScroll();
