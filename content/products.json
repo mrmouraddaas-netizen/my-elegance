@@ -13,30 +13,6 @@
       "desc_ar": "كرونوغراف كلاسيكي خالد بحركة كوارتز دقيقة، هيكل من الفولاذ المقاوم للصدأ وسوار من الجلد الأصلي."
     },
     {
-      "name_fr": "Élégance Dorée",
-      "name_ar": "إليغانس الذهبي",
-      "active": true,
-      "price": 68000,
-      "desc_en": "Luxurious gold-plated watch with diamond-cut indices, sapphire crystal, and Swiss quartz movement.",
-      "desc_fr": "Montre luxueuse plaquée or avec index diamantés, verre saphir et mouvement suisse à quartz.",
-      "id": 2,
-      "image": "assets/images/watches/elegance-gold.jpg",
-      "name_en": "Elegance Gold",
-      "desc_ar": "ساعة فاخرة مطلية بالذهب مع مؤشرات ماسية، زجاج ياقوتي وحركة كوارتز سويسرية."
-    },
-    {
-      "name_fr": "Sport Pro",
-      "name_ar": "سبورت برو",
-      "active": true,
-      "price": 32000,
-      "desc_en": "Rugged sports watch with 200m water resistance, tachymeter bezel, and durable silicone strap.",
-      "desc_fr": "Montre sportive robuste avec étanchéité 200m, lunette tachymétrique et bracelet silicone durable.",
-      "id": 3,
-      "image": "assets/images/watches/sport-pro.jpg",
-      "name_en": "Sport Pro",
-      "desc_ar": "ساعة رياضية متينة بمقاومة ماء 200م، إطار تاكيمتر وسوار سيليكون متين."
-    },
-    {
       "name_fr": "Série Diamant",
       "name_ar": "سلسلة الماس",
       "active": true,
@@ -107,18 +83,6 @@
       "image": "assets/images/watches/rose-gold.jpg",
       "name_en": "Rose Gold Lady",
       "desc_ar": "ساعة أنيقة للسيدات مطلية بالذهب الوردي مع قرص عرق اللؤلؤ وسوار ميلانيزي رقيق."
-    },
-    {
-      "name_fr": "Fibre de Carbone X",
-      "name_ar": "كاربون فايبر إكس",
-      "active": true,
-      "price": 95000,
-      "desc_en": "Ultra-light carbon fiber case with chronograph function and tactical design.",
-      "desc_fr": "Boîtier en fibre de carbone ultra-légère avec fonction chronographe et design tactique.",
-      "id": 10,
-      "image": "assets/images/watches/carbon-fiber.jpg",
-      "name_en": "Carbon Fiber X",
-      "desc_ar": "هيكل ألياف كربون فائق الخفة مع وظيفة كرونوغراف وتصميم تكتيكي."
     }
   ]
 }
