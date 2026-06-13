@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: mrmouraddaas-netizen/my-elegance
+  branch: main
+  base_url: https://oauth.decapcms.org
+  auth_endpoint: auth
+
+media_folder: assets/images/watches
+public_folder: assets/images/watches
+
+collections:
+  - name: products
+    label: Products
+    label_singular: Product
+    description: Manage your watch products
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: content/products.json
+        name: products
+        label: All Products
+        description: Edit, add, or remove products from your store
+        fields:
+          - label: Products
+            name: products
+            widget: list
+            hint: Each product in your store
+            fields:
+              - {label: "ID", name: id, widget: number, hint: "Unique product number", required: true}
+              - {label: "Active", name: active, widget: boolean, default: true, hint: "Uncheck to hide this product from the store"}
+              - {label: "Name (English)", name: name_en, widget: string, required: true}
+              - {label: "Name (French)", name: name_fr, widget: string, required: true}
+              - {label: "Name (Arabic)", name: name_ar, widget: string, required: true}
+              - {label: "Price (DZD)", name: price, widget: number, required: true, hint: "Price in Algerian Dinars (e.g. 45000)"}
+              - {label: "Image", name: image, widget: image, default: "assets/images/watches/placeholder.jpg", hint: "Upload a watch image or use existing path"}
+              - {label: "Description (English)", name: desc_en, widget: text, required: true}
+              - {label: "Description (French)", name: desc_fr, widget: text, required: true}
+              - {label: "Description (Arabic)", name: desc_ar, widget: text, required: true}

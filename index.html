@@ -650,18 +650,7 @@ body.rtl .product-detail-close{right:auto;left:12px}
 <div class="container">
 <h2 class="section-title"><span class="gradient-text" data-i18n="products-title">MY ELEGANCE SHOP</span></h2>
 <p class="section-subtitle" data-i18n="products-sub">Découvrez notre collection de montres</p>
-<div class="products-grid">
-<div class="product-card" onclick="showProductDetail(1)"><img src="assets/images/watches/classic-chrono.jpg" alt="Classic Chronograph" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p1-name">Classic Chronograph</div><div class="p-price" data-i18n="p1-price">45,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(1)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(2)"><img src="assets/images/watches/elegance-gold.jpg" alt="Elegance Gold" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p2-name">Elegance Gold</div><div class="p-price" data-i18n="p2-price">68,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(2)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(3)"><img src="assets/images/watches/sport-pro.jpg" alt="Sport Pro" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p3-name">Sport Pro</div><div class="p-price" data-i18n="p3-price">32,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(3)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(4)"><img src="assets/images/watches/diamond-series.jpg" alt="Diamond Series" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p4-name">Diamond Series</div><div class="p-price" data-i18n="p4-price">120,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(4)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(5)"><img src="assets/images/watches/minimalist-black.jpg" alt="Minimalist Black" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p5-name">Minimalist Black</div><div class="p-price" data-i18n="p5-price">25,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(5)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(6)"><img src="assets/images/watches/ocean-blue.jpg" alt="Ocean Blue Diver" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p6-name">Ocean Blue Diver</div><div class="p-price" data-i18n="p6-price">55,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(6)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(7)"><img src="assets/images/watches/heritage-auto.jpg" alt="Heritage Automatic" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p7-name">Heritage Automatic</div><div class="p-price" data-i18n="p7-price">89,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(7)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(8)"><img src="assets/images/watches/urban-steel.jpg" alt="Urban Steel" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p8-name">Urban Steel</div><div class="p-price" data-i18n="p8-price">38,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(8)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(9)"><img src="assets/images/watches/rose-gold.jpg" alt="Rose Gold Lady" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p9-name">Rose Gold Lady</div><div class="p-price" data-i18n="p9-price">72,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(9)" data-i18n="prod-add">Add to Cart</button></div></div>
-<div class="product-card" onclick="showProductDetail(10)"><img src="assets/images/watches/carbon-fiber.jpg" alt="Carbon Fiber X" loading="lazy"><div class="product-info"><div class="p-name" data-i18n="p10-name">Carbon Fiber X</div><div class="p-price" data-i18n="p10-price">95,000 DA</div><button class="p-add" onclick="event.stopPropagation();addToCart(10)" data-i18n="prod-add">Add to Cart</button></div></div>
-</div>
+<div class="products-grid" id="productsGrid"></div>
 </div>
 </section><!-- Gallery -->
 <section class="section" id="gallery">
@@ -1116,18 +1105,75 @@ function sendOrderEmail(order){
 }
 
 // ========== DATA ==========
-const products = {
+const fallbackProducts = {
   1:{name:'Classic Chronograph',price:45000,img:'assets/images/watches/classic-chrono.jpg'},
   2:{name:'Elegance Gold',price:68000,img:'assets/images/watches/elegance-gold.jpg'},
   3:{name:'Sport Pro',price:32000,img:'assets/images/watches/sport-pro.jpg'},
   4:{name:'Diamond Series',price:120000,img:'assets/images/watches/diamond-series.jpg'},
   5:{name:'Minimalist Black',price:25000,img:'assets/images/watches/minimalist-black.jpg'},
-   6:{name:'Ocean Blue Diver',price:55000,img:'assets/images/watches/ocean-blue.jpg'},
+  6:{name:'Ocean Blue Diver',price:55000,img:'assets/images/watches/ocean-blue.jpg'},
   7:{name:'Heritage Automatic',price:89000,img:'assets/images/watches/heritage-auto.jpg'},
   8:{name:'Urban Steel',price:38000,img:'assets/images/watches/urban-steel.jpg'},
   9:{name:'Rose Gold Lady',price:72000,img:'assets/images/watches/rose-gold.jpg'},
   10:{name:'Carbon Fiber X',price:95000,img:'assets/images/watches/carbon-fiber.jpg'}
 };
+const products = {};
+function renderProducts(){
+  const grid=document.getElementById('productsGrid');if(!grid)return;
+  const lang=document.documentElement.lang;const curr=lang==='ar'?'د.ج':'DZD';
+  let h='';let cnt=0;
+  Object.keys(products).sort((a,b)=>a-b).forEach(id=>{
+    const p=products[id];if(!p||p.active===false)return;cnt++;
+    const name=p['name_'+lang]||p.name;
+    const price=fmt(p.price)+' '+curr;
+    h+='<div class="product-card" onclick="showProductDetail('+id+')">'+
+      '<img src="'+p.img+'" alt="'+name+'" loading="lazy">'+
+      '<div class="product-info">'+
+      '<div class="p-name">'+name+'</div>'+
+      '<div class="p-price">'+price+'</div>'+
+      '<button class="p-add" onclick="event.stopPropagation();addToCart('+id+')" data-i18n="prod-add">'+(getI18n('prod-add')||'Add to Cart')+'</button>'+
+      '</div></div>';
+  });
+  grid.innerHTML=h||'<p style="text-align:center;color:var(--gray);padding:40px">'+getI18n('no-products')+'</p>';
+  if(lang==='ar')grid.parentElement.style.direction='rtl';else grid.parentElement.style.direction='';
+}
+function loadProductsFromData(data){
+  data.forEach(p=>{
+    if(p.active===false)return;
+    products[p.id]={
+      name:p.name_en,
+      name_en:p.name_en,name_fr:p.name_fr,name_ar:p.name_ar,
+      price:p.price,img:p.image,
+      desc_en:p.desc_en,desc_fr:p.desc_fr,desc_ar:p.desc_ar
+    };
+    ['en','fr','ar'].forEach(l=>{
+      const nn=p['name_'+l];if(nn)i18n[l]['p'+p.id+'-name']=nn;
+      const dd=p['desc_'+l];if(dd)i18n[l]['p'+p.id+'-desc']=dd;
+      const cc=l==='ar'?'د.ج':l==='fr'?'DA':'DZD';
+      i18n[l]['p'+p.id+'-price']=fmt(p.price)+' '+cc;
+    });
+  });
+  renderProducts();
+}
+async function loadProducts(){
+  try{
+    const t=Date.now();const r=await fetch('content/products.json?'+t);
+    if(!r.ok)throw new Error('Not found');
+    const d=await r.json();loadProductsFromData(d);
+  }catch(e){
+    Object.assign(products,fallbackProducts);
+    Object.keys(fallbackProducts).forEach(id=>{
+      ['en','fr','ar'].forEach(l=>{
+        const p=fallbackProducts[id];
+        i18n[l]['p'+id+'-name']=p.name;
+        i18n[l]['p'+id+'-desc']='';
+        const cc=l==='ar'?'د.ج':l==='fr'?'DA':'DZD';
+        i18n[l]['p'+id+'-price']=fmt(p.price)+' '+cc;
+      });
+    });
+    renderProducts();
+  }
+}
 
 // ========== YALIDINE DELIVERY// ========== YALIDINE DELIVERY ==========
 const yalidineZones = {
@@ -1360,19 +1406,7 @@ const i18n={
     promo:'💎 Luxury Watches Algeria | 📞 0554 67 22 22 | 🚚 Delivery nationwide',
     'nav-home':'Home','nav-about':'About','nav-shop':'Shop','nav-gallery':'Gallery','nav-contact':'Contact','nav-testimonials':'Testimonials','nav-faq':'FAQ',
      'products-title':'MY ELEGANCE SHOP','products-sub':'Discover our watch collection','prod-add':'Add to Cart',
-    'p1-name':'Classic Chronograph','p2-name':'Elegance Gold','p3-name':'Sport Pro','p4-name':'Diamond Series','p5-name':'Minimalist Black','p6-name':'Ocean Blue Diver','p7-name':'Heritage Automatic','p8-name':'Urban Steel','p9-name':'Rose Gold Lady','p10-name':'Carbon Fiber X',
     'fab-about':'About','fab-gallery':'Gallery','fab-contact':'Contact','fab-faq':'FAQ',
-    'p1-price':'45,000 DZD','p2-price':'68,000 DZD','p3-price':'32,000 DZD','p4-price':'120,000 DZD','p5-price':'25,000 DZD','p6-price':'55,000 DZD','p7-price':'89,000 DZD','p8-price':'38,000 DZD','p9-price':'72,000 DZD','p10-price':'95,000 DZD',
-    'p1-desc':'A timeless chronograph with precise quartz movement, stainless steel case, and genuine leather strap.',
-    'p2-desc':'Luxurious gold-plated watch with diamond-cut indices, sapphire crystal, and Swiss quartz movement.',
-    'p3-desc':'Rugged sports watch with 200m water resistance, tachymeter bezel, and durable silicone strap.',
-    'p4-desc':'Exquisite timepiece featuring genuine diamond accents, mother-of-pearl dial, and premium Japanese movement.',
-    'p5-desc':'Ultra-slim minimalist design with matte black finish, scratch-resistant mineral glass, and Japanese quartz movement.',
-    'p6-desc':'Professional 300m dive watch with unidirectional bezel, luminous hands, and helium escape valve.',
-    'p7-desc':'Mechanical automatic watch with exhibition caseback and 42-hour power reserve.',
-    'p8-desc':'Modern stainless steel watch with brushed finish, date window, and 100m water resistance.',
-    'p9-desc':'Elegant ladies watch with rose gold plating, mother-of-pearl dial, and delicate Milanese mesh strap.',
-    'p10-desc':'Ultra-light carbon fiber case with chronograph function and tactical design.',
     'hero-badge':'✨ Luxury Watches','hero-title':'TIME IS<br><span class="gold-text">ELEGANCE</span>',
     'hero-sub':'My Elegance — Authentic luxury watches at the best prices. Discover elegance at every second.',
     'hero-cta1':'Explore','hero-cta2':'Contact Us',
@@ -1404,25 +1438,13 @@ const i18n={
     'checkout-title':'Delivery Information','checkout-name':'Full Name','checkout-phone':'Phone','checkout-wilaya':'Wilaya','checkout-delivery-type':'Delivery Type','delivery-stop-desk':'Stop Desk (Pickup point)','delivery-home':'Home Delivery','delivery-cost-label':'Delivery fee','checkout-address':'Full Address','checkout-submit':'Confirm Order','checkout-back':'Back to cart',
     'summary-subtotal':'Subtotal','summary-delivery':'Delivery','summary-grand':'Total',
     'success-title':'Order Sent!','success-text':'Thank you! Your order has been sent. We will contact you shortly.','success-close':'Close',
-    'continue-shopping':'Continue Shopping'
+    'continue-shopping':'Continue Shopping','no-products':'No products available'
   },
   fr:{
     promo:'💎 Montres de Luxe Algérie | 📞 0554 67 22 22 | 🚚 Livraison partout en Algérie',
     'nav-home':'Accueil','nav-about':'À propos','nav-shop':'Boutique','nav-gallery':'Galerie','nav-contact':'Contact','nav-testimonials':'Témoignages','nav-faq':'FAQ',
      'products-title':'MY ELEGANCE SHOP','products-sub':'Découvrez notre collection de montres','prod-add':'Ajouter au panier',
-    'p1-name':'Chronographe Classique','p2-name':'Élégance Dorée','p3-name':'Sport Pro','p4-name':'Série Diamant','p5-name':'Noir Minimaliste','p6-name':'Plongeuse Océan Bleu','p7-name':'Automatique Heritage','p8-name':'Acier Urbain','p9-name':'Dame Or Rose','p10-name':'Fibre de Carbone X',
     'fab-about':'À propos','fab-gallery':'Galerie','fab-contact':'Contact','fab-faq':'FAQ',
-    'p1-price':'45,000 DA','p2-price':'68,000 DA','p3-price':'32,000 DA','p4-price':'120,000 DA','p5-price':'25,000 DA','p6-price':'55,000 DA','p7-price':'89,000 DA','p8-price':'38,000 DA','p9-price':'72,000 DA','p10-price':'95,000 DA',
-    'p1-desc':'Un chronographe intemporel avec mouvement à quartz précis, boîtier en acier inoxydable et bracelet en cuir véritable.',
-    'p2-desc':'Montre luxueuse plaquée or avec index diamantés, verre saphir et mouvement suisse à quartz.',
-    'p3-desc':'Montre sportive robuste avec étanchéité 200m, lunette tachymétrique et bracelet silicone durable.',
-    'p4-desc':'Garde-temps exquis avec accents de diamants véritables, cadran en nacre et mouvement japonais premium.',
-    'p5-desc':'Design minimaliste ultra-fin avec finition noire mate, verre minéral résistant et mouvement quartz japonais.',
-    'p6-desc':'Montre de plongée professionnelle 300m avec lunette unidirectionnelle, aiguilles lumineuses et valve hélium.',
-    'p7-desc':'Montre mécanique automatique avec fond transparent et réserve de marche de 42 heures.',
-    'p8-desc':'Montre moderne en acier inoxydable brossé avec guichet dateur et étanchéité 100m.',
-    'p9-desc':'Montre élégante pour femme plaquée or rose avec cadran nacre et bracelet milanais délicat.',
-    'p10-desc':'Boîtier en fibre de carbone ultra-légère avec fonction chronographe et design tactique.',
     'hero-badge':'✨ Montres de Luxe','hero-title':'LE TEMPS<br><span class="gold-text">EST ÉLÉGANCE</span>',
     'hero-sub':'My Elegance — Montres de luxe authentiques au meilleur prix. Découvrez l\'élégance à chaque seconde.',
     'hero-cta1':'Explorer','hero-cta2':'Nous Contacter',
@@ -1454,25 +1476,13 @@ const i18n={
     'checkout-title':'Informations de livraison','checkout-name':'Nom complet','checkout-phone':'Téléphone','checkout-wilaya':'Wilaya','checkout-delivery-type':'Type de livraison','delivery-stop-desk':'Stop Desk (Point relais)','delivery-home':'Livraison à domicile','delivery-cost-label':'Frais de livraison','checkout-address':'Adresse complète','checkout-submit':'Confirmer la commande','checkout-back':'Retour au panier',
     'summary-subtotal':'Sous-total','summary-delivery':'Livraison','summary-grand':'Total',
     'success-title':'Commande envoyée !','success-text':'Merci ! Votre commande a été envoyée. Nous vous contacterons dans les plus brefs délais.','success-close':'Fermer',
-    'continue-shopping':'Continuer vos achats'
+    'continue-shopping':'Continuer vos achats','no-products':'Aucun produit disponible'
   },
   ar:{
     promo:'💎 ساعات فاخرة الجزائر | 📞 0554 67 22 22 | 🚚 توصيل إلى جميع أنحاء الجزائر',
     'nav-home':'الرئيسية','nav-about':'من نحن','nav-shop':'المتجر','nav-gallery':'المعرض','nav-contact':'اتصل بنا','nav-testimonials':'الشهادات','nav-faq':'الأسئلة الشائعة',
      'products-title':'متجر MY ELEGANCE','products-sub':'اكتشف مجموعتنا من الساعات','prod-add':'أضف إلى السلة',
-    'p1-name':'كلاسيك كرونوغراف','p2-name':'إليغانس الذهبي','p3-name':'سبورت برو','p4-name':'سلسلة الماس','p5-name':'أسود مينيماليست','p6-name':'غواص الأزرق','p7-name':'هيريتاج أوتوماتيك','p8-name':'أوربان ستيل','p9-name':'روز جولد ليدي','p10-name':'كاربون فايبر إكس',
     'fab-about':'من نحن','fab-gallery':'المعرض','fab-contact':'اتصل بنا','fab-faq':'الأسئلة الشائعة',
-    'p1-price':'45,000 د.ج','p2-price':'68,000 د.ج','p3-price':'32,000 د.ج','p4-price':'120,000 د.ج','p5-price':'25,000 د.ج','p6-price':'55,000 د.ج','p7-price':'89,000 د.ج','p8-price':'38,000 د.ج','p9-price':'72,000 د.ج','p10-price':'95,000 د.ج',
-    'p1-desc':'كرونوغراف كلاسيكي خالد بحركة كوارتز دقيقة، هيكل من الفولاذ المقاوم للصدأ وسوار من الجلد الأصلي.',
-    'p2-desc':'ساعة فاخرة مطلية بالذهب مع مؤشرات ماسية، زجاج ياقوتي وحركة كوارتز سويسرية.',
-    'p3-desc':'ساعة رياضية متينة بمقاومة ماء 200م، إطار تاكيمتر وسوار سيليكون متين.',
-    'p4-desc':'ساعة رائعة مع لمسات ماس حقيقي، قرص عرق اللؤلؤ وحركة يابانية ممتازة.',
-    'p5-desc':'تصميم بسيط فائق النحافة مع لمسة نهائية سوداء غير لامعة، زجاج معدني مقاوم للخدش وحركة كوارتز يابانية.',
-    'p6-desc':'ساعة غوص احترافية 300م مع إطار أحادي الاتجاه، عقارب مضيئة وصمام هيليوم.',
-    'p7-desc':'ساعة ميكانيكية أوتوماتيكية مع ظهر شفاف واحتياطي طاقة 42 ساعة.',
-    'p8-desc':'ساعة عصرية من الفولاذ المقاوم للصدأ المصقول مع نافذة تاريخ ومقاومة ماء 100م.',
-    'p9-desc':'ساعة أنيقة للسيدات مطلية بالذهب الوردي مع قرص عرق اللؤلؤ وسوار ميلانيزي رقيق.',
-    'p10-desc':'هيكل ألياف كربون فائق الخفة مع وظيفة كرونوغراف وتصميم تكتيكي.',
     'hero-badge':'✨ ساعات فاخرة','hero-title':'الوقت<br><span class="gold-text">أناقة</span>',
     'hero-sub':'My Elegance — ساعات فاخرة أصلية بأفضل الأسعار. اكتشف الأناقة في كل ثانية.',
     'hero-cta1':'استعرض','hero-cta2':'اتصل بنا',
@@ -1504,7 +1514,7 @@ const i18n={
     'checkout-title':'معلومات التوصيل','checkout-name':'الاسم الكامل','checkout-phone':'الهاتف','checkout-wilaya':'الولاية','checkout-delivery-type':'نوع التوصيل','delivery-stop-desk':'نقطة الاستلام (Stop Desk)','delivery-home':'توصيل إلى المنزل','delivery-cost-label':'رسوم التوصيل','checkout-address':'العنوان الكامل','checkout-submit':'تأكيد الطلب','checkout-back':'العودة إلى السلة',
     'summary-subtotal':'المجموع الفرعي','summary-delivery':'التوصيل','summary-grand':'المجموع',
     'success-title':'تم إرسال الطلب!','success-text':'شكراً! تم إرسال طلبك. سنتصل بك قريباً.','success-close':'إغلاق',
-    'continue-shopping':'مواصلة التسوق'
+    'continue-shopping':'مواصلة التسوق','no-products':'لا توجد منتجات متاحة'
   }
 };
 
@@ -1522,7 +1532,7 @@ function setLang(lang){
     if(val){if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=val;else el.innerHTML=val}
   });
   document.title={'en':'My Elegance - Luxury Watches Algeria','fr':'My Elegance - Montres de Luxe en Algérie','ar':'My Elegance - لوكس الجزائر'}[lang];
-  renderCart();
+  renderCart();renderProducts();
   localStorage.setItem('me_lang',lang);
 }
 
@@ -1531,11 +1541,13 @@ document.querySelectorAll('.lang-btn').forEach(btn=>{
 });
 
 // ========== INIT ==========
-const savedLang=localStorage.getItem('me_lang')||'fr';
-setLang(savedLang);
-renderCart();
-// Initialize page from URL hash
-initPage();
+(async function(){
+  await loadProducts();
+  const savedLang=localStorage.getItem('me_lang')||'fr';
+  setLang(savedLang);
+  renderCart();
+  initPage();
+})();
 
 // ========== Scroll animations ==========
 const observer=new IntersectionObserver((entries)=>{
