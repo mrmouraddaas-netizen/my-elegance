@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+<style>
+:root{--gold:#D4AF37;--gold-light:#F0D060;--gold-dark:#B8960F;--gold-gradient:linear-gradient(135deg,#D4AF37,#F0D060,#B8960F);--black:#0a0a0a;--black-2:#111;--black-3:#1a1a1a;--white:#fff;--gray:#888;--gray-light:#ccc;--font-sans:'Roboto',sans-serif;--font-display:'Barlow',sans-serif;--font-arabic:'Noto Kufi Arabic',sans-serif;--header-h:72px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--black);color:var(--white);font-family:var(--font-sans)}
+.marquee-section{overflow:hidden;background:var(--black-2);border-top:1px solid rgba(212,175,55,.1);border-bottom:1px solid rgba(212,175,55,.1)}
+.marquee-section article{display:flex;align-items:center;overflow:hidden;white-space:nowrap;padding:10px 0}
+.marquee-section article div{flex:none;width:max-content;position:relative}
+.marquee-section ul{display:flex;padding:0;margin:0;list-style:none;white-space:nowrap}
+.marquee-section ul.animate-marquee{animation:marquee 55s linear infinite}
+.marquee-section ul.animate-marquee-reverse{position:absolute;top:0;animation:marquee-reverse 55s linear infinite}
+.marquee-section ul.animate-marquee-invert{animation:marquee-invert 55s linear infinite}
+.marquee-section ul.animate-marquee-invert-reverse{position:absolute;top:0;animation:marquee-invert-reverse 55s linear infinite}
+.marquee-letter{flex:none;padding:0 6px;font-family:var(--font-display);font-size:clamp(1.4rem,4vw,2.5rem);font-weight:900;letter-spacing:4px;text-transform:uppercase}
+.marquee-letter.fill{color:#fff}
+.marquee-letter.outline{color:transparent;-webkit-text-stroke:2px var(--gold)}
+.marquee-letter.star{color:var(--gold);font-weight:300;font-size:clamp(.9rem,2.5vw,1.5rem)}
+@keyframes marquee{0%{transform:translate(0)}to{transform:translate(-100%)}}
+@keyframes marquee-reverse{0%{transform:translate(100%)}to{transform:translate(0)}}
+@keyframes marquee-invert{0%{transform:translate(-100%)}to{transform:translate(0)}}
+@keyframes marquee-invert-reverse{0%{transform:translate(0)}to{transform:translate(100%)}}
+</style>
+</head>
+<body>
+<section class="marquee-section">
+<article>
+<div>
+<ul class="animate-marquee">
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+</ul>
+<ul class="animate-marquee-reverse">
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+</ul>
+</div>
+</article>
+<article>
+<div>
+<ul class="animate-marquee-invert">
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+</ul>
+<ul class="animate-marquee-invert-reverse">
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+</ul>
+</div>
+</article>
+</section>
+</body>
+</html>

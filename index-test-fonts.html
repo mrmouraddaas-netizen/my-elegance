@@ -1,0 +1,1451 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="BodyGlad - N°1 Fitness à Alger. Salle de sport premium, équipements modernes, coachs professionnels, suppléments Reborn Nutrition. Abonnements flexibles.">
+<meta name="keywords" content="fitness alger, salle de sport alger, gym cheraga, bodyglad, reborn nutrition, salle de musculation alger">
+<title>BodyGlad - N°1 Fitness à Alger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Barlow:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
+<style>
+/* TEST ANIM */
+.test-anim{position:fixed;bottom:0;left:0;width:80px;height:80px;background:red;z-index:9999;animation:testMove 2s linear infinite}
+@keyframes testMove{0%{transform:translateX(0)}100%{transform:translateX(300px)}}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#D4AF37;--gold-light:#F0D060;--gold-dark:#B8960F;--gold-gradient:linear-gradient(135deg,#D4AF37,#F0D060,#B8960F);--black:#0a0a0a;--black-2:#111;--black-3:#1a1a1a;--white:#fff;--gray:#888;--gray-light:#ccc;--font-sans:'Roboto',sans-serif;--font-display:'Barlow',sans-serif;--font-arabic:'Noto Kufi Arabic',sans-serif;--header-h:72px}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-sans);background:var(--black);color:var(--white);overflow-x:hidden;overscroll-behavior:none;line-height:1.6;-webkit-font-smoothing:antialiased}
+body.rtl{direction:rtl;font-family:var(--font-arabic)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit;color:inherit}
+ul{list-style:none}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+.section{padding:60px 0}
+.section-title{font-family:var(--font-display);font-size:2rem;font-weight:800;text-align:center;margin-bottom:4px;text-transform:uppercase;letter-spacing:3px}
+.section-subtitle{text-align:center;color:#64748b;font-size:.75rem;margin-bottom:36px;text-transform:uppercase;letter-spacing:2px;font-weight:500}
+.gradient-text{background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.gold-text{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 28px;border-radius:50px;font-weight:700;font-size:.85rem;transition:all .3s ease;text-transform:uppercase;letter-spacing:1.5px}
+.btn-gold{background:var(--gold);color:var(--black);border:1px solid var(--gold)}
+.btn-gold:hover{background:var(--white);color:var(--black);border-color:var(--white);transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,.3)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+.btn-sm{padding:6px 16px;font-size:.78rem;letter-spacing:1px}
+.btn-nav{background:var(--gold);color:var(--black);border:1px solid var(--gold);padding:4px 14px;font-size:.75rem;font-weight:700;border-radius:50px;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s}
+.btn-nav:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+
+/* Promo Bar */
+.promo-bar{background:var(--gold-gradient);color:var(--black);text-align:center;padding:10px 16px;font-size:.85rem;font-weight:600;letter-spacing:.3px;position:relative;z-index:1001;display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap}
+.promo-bar .promo-sep{color:rgba(0,0,0,.3);font-weight:300}
+
+/* Header */
+.header{position:sticky;top:0;z-index:1000;background:var(--black);border-bottom:1px solid rgba(212,175,55,.15)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);padding:0 20px;max-width:1200px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-img{height:42px;width:auto;max-width:180px;object-fit:contain}
+.nav{display:flex;align-items:center;gap:4px}
+.nav-link{padding:8px 14px;font-size:.82rem;font-weight:600;color:var(--gray-light);transition:color .3s;white-space:nowrap;position:relative;text-transform:uppercase;letter-spacing:1.5px}
+.nav-link:hover,.nav-link.active{color:var(--gold)}
+.cart-btn{position:relative;width:40px;height:40px;display:flex;align-items:center;justify-content:center;color:var(--gray-light);transition:color .3s}
+.cart-btn:hover{color:var(--gold)}
+.cart-badge{position:absolute;top:2px;right:2px;width:18px;height:18px;background:var(--gold-gradient);border-radius:50%;font-size:10px;font-weight:700;color:var(--black);display:flex;align-items:center;justify-content:center}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s;border-radius:2px}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.lang-switcher{display:flex;gap:2px;margin-left:8px}
+.lang-btn{padding:4px 8px;font-size:.75rem;font-weight:600;border-radius:4px;color:var(--gray);transition:all .3s}
+.lang-btn:hover,.lang-btn.active{color:var(--gold);background:rgba(212,175,55,.1)}
+body.rtl .lang-btn{font-family:var(--font-arabic)}
+
+/* Mobile Nav */
+.mobile-nav{display:none;position:fixed;top:var(--header-h);left:0;width:100%;background:var(--black-2);padding:20px;border-bottom:1px solid rgba(212,175,55,.15);z-index:999;transform:translateY(-100%);opacity:0;transition:all .4s ease}
+.mobile-nav.open{transform:translateY(0);opacity:1}
+.mobile-nav .nav-link{display:block;padding:12px 0;font-size:1.05rem;border-bottom:1px solid rgba(255,255,255,.05)}
+
+/* Hero */
+.hero{position:relative;width:100%;height:80vh;min-height:500px;overflow:hidden;background:#000}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.6));z-index:1}
+.hero-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.5rem,8vw,5rem);font-weight:900;line-height:1.1;margin-bottom:16px;text-transform:uppercase;letter-spacing:6px}
+.hero-title .gold-text{background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title .hl{display:inline-block;opacity:0;animation:heroReveal 0.6s cubic-bezier(.16,1,.3,1) forwards}
+.hero-title .hl:nth-child(1){animation-delay:0.1s}
+.hero-title .hl:nth-child(2){animation-delay:0.2s}
+.hero-title .hl:nth-child(3){animation-delay:0.3s}
+.hero-title .hl:nth-child(4){animation-delay:0.4s}
+.hero-title .hl:nth-child(5){animation-delay:0.5s}
+.hero-title .hl:nth-child(6){animation-delay:0.6s}
+.hero-title .hl:nth-child(7){animation-delay:0.7s}
+.hero-title .hl:nth-child(8){animation-delay:0.8s}
+.hero-title .hl:nth-child(9){animation-delay:0.9s}
+.hero-title .hl:nth-child(10){animation-delay:1.0s}
+@keyframes heroReveal{0%{opacity:0;transform:translateY(80px) rotateX(-60deg);filter:blur(10px)}100%{opacity:1;transform:translateY(0) rotateX(0);filter:blur(0)}}
+.hero-sub{font-family:var(--font-sans);font-size:clamp(.95rem,1.5vw,1.15rem);color:#94a3b8;margin-bottom:32px;max-width:500px;font-weight:400;letter-spacing:.5px;opacity:0;animation:heroFadeIn 0.8s ease 1.1s forwards}
+.hero-badge{font-family:var(--font-display);font-size:clamp(.75rem,1.2vw,.9rem);font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;opacity:0;animation:heroFadeIn 0.6s ease 0.05s forwards;padding:6px 20px;border:1px solid rgba(212,175,55,.3);border-radius:50px;display:inline-block}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:heroFadeIn 0.8s ease 1.6s forwards}
+@keyframes heroFadeIn{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+/* Marquee - FC Style */
+.marquee-section{overflow:hidden;background:var(--black-2);border-top:1px solid rgba(212,175,55,.1);border-bottom:1px solid rgba(212,175,55,.1)}
+.marquee-section article{display:flex;align-items:center;overflow:hidden;white-space:nowrap;padding:10px 0}
+.marquee-section article div{flex:none;width:max-content;position:relative}
+.marquee-section ul{display:flex;padding:0;margin:0;list-style:none;white-space:nowrap}
+.marquee-section ul.animate-marquee{animation:marquee 55s linear infinite}
+.marquee-section ul.animate-marquee-reverse{position:absolute;top:0;animation:marquee-reverse 55s linear infinite}
+.marquee-section ul.animate-marquee-invert{animation:marquee-invert 55s linear infinite}
+.marquee-section ul.animate-marquee-invert-reverse{position:absolute;top:0;animation:marquee-invert-reverse 55s linear infinite}
+.marquee-letter{flex:none;padding:0 6px;font-family:var(--font-display);font-size:clamp(1.4rem,4vw,2.5rem);font-weight:900;letter-spacing:4px;text-transform:uppercase}
+.marquee-letter.fill{color:#fff}
+.marquee-letter.outline{color:transparent;-webkit-text-stroke:2px var(--gold)}
+.marquee-letter.star{color:var(--gold);font-weight:300;font-size:clamp(.9rem,2.5vw,1.5rem)}
+@keyframes marquee{0%{transform:translate(0)}to{transform:translate(-100%)}}
+@keyframes marquee-reverse{0%{transform:translate(100%)}to{transform:translate(0)}}
+@keyframes marquee-invert{0%{transform:translate(-100%)}to{transform:translate(0)}}
+@keyframes marquee-invert-reverse{0%{transform:translate(0)}to{transform:translate(100%)}}
+
+/* Animated Gradient */
+.animate-gradient{background-size:200% auto;animation:gradient-shift 4s ease infinite}
+@keyframes gradient-shift{0%,100%{background-position:0% center}50%{background-position:100% center}}
+
+/* TEST ANIMATION */
+.test-anim{position:fixed;bottom:0;left:0;width:80px;height:80px;background:red;z-index:9999;animation:testMove 2s linear infinite}
+@keyframes testMove{0%{transform:translateX(0)}100%{transform:translateX(300px)}}
+
+
+
+/* Card Wrapper - Rotating Border Effect */
+.card-wrap{position:relative;overflow:hidden;border-radius:12px;display:flex}
+.card-wrap::before{content:'';position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent 60deg,rgba(212,175,55,.6) 80deg,transparent 100deg);animation:cardBorderSpin 6s linear infinite}
+@keyframes cardBorderSpin{to{transform:rotate(360deg)}}
+.card-inner{position:relative;z-index:1;margin:1px;border-radius:11px;background:var(--black-2);height:calc(100% - 2px);width:calc(100% - 2px);display:flex;flex-direction:column}
+
+/* Info Cards */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.info-card{padding:24px 20px;text-align:center;transition:all .3s ease}
+.info-card:hover{transform:translateY(-4px)}
+.info-card .info-icon{width:40px;height:40px;margin:0 auto 12px;background:rgba(212,175,55,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.info-card h3{font-family:var(--font-display);font-size:.85rem;font-weight:700;margin-bottom:8px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.info-card p{font-size:.82rem;color:var(--gray);line-height:1.7}
+.info-card p span{display:block}
+
+/* Products */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.product-card{overflow:hidden;transition:all .3s ease;height:100%}
+.product-card:hover{transform:translateY(-4px)}
+.product-img{width:100%;height:220px;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,rgba(0,0,0,.06),transparent);pointer-events:none}
+.product-img img{width:100%;height:100%;object-fit:contain;padding:12px;transition:transform .3s}
+.product-card:hover .product-img img{transform:scale(1.05)}
+.product-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.product-body h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.product-body .desc{font-size:.82rem;color:var(--gray);margin-bottom:12px}
+.product-body .price{font-size:1.3rem;font-weight:800;color:var(--gold);margin-bottom:16px;margin-top:auto}
+.product-body .btn{margin-top:auto}
+
+/* Coaches */
+.coaches-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.coach-card{overflow:hidden;transition:all .3s ease;text-align:center}
+.coach-card:hover{transform:translateY(-4px)}
+.coach-avatar{width:100%;height:280px;background:var(--black-3);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+.coach-avatar .flag{position:absolute;bottom:12px;right:12px;font-size:2rem}
+.coach-body{padding:24px}
+.coach-body h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.coach-body .role{font-size:.85rem;color:var(--gold);font-weight:600;margin-bottom:10px}
+.coach-body p{font-size:.85rem;color:var(--gray);line-height:1.7}
+
+/* Testimonials */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.testimonial-card{padding:24px 20px;transition:all .3s ease}
+.testimonial-card:hover{transform:translateY(-4px)}
+.testimonial-card .quote{font-size:1.8rem;color:var(--gold);margin-bottom:12px;font-family:var(--font-display);line-height:1}
+.testimonial-card p{font-size:.9rem;color:var(--gray-light);line-height:1.7;margin-bottom:16px;font-style:italic}
+.testimonial-card .author{display:flex;align-items:center;gap:12px}
+.testimonial-card .author-avatar{width:40px;height:40px;border-radius:50%;background:var(--gold-gradient);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:var(--black);flex-shrink:0}
+.testimonial-card .author-info strong{font-size:.9rem;display:block}
+.testimonial-card .author-info span{font-size:.8rem;color:var(--gray)}
+
+/* FAQ */
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(212,175,55,.15);margin-bottom:0}
+.faq-q{padding:16px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:.95rem;transition:color .3s;width:100%;text-align:left;background:none;border:none;color:var(--white);font-family:inherit;letter-spacing:.3px}
+.faq-q:hover{color:var(--gold)}
+.faq-q .icon-text{font-size:.85rem;color:var(--gold);flex-shrink:0;margin-left:16px;transition:transform .3s}
+.faq-item.open .faq-q .icon-text{transform:rotate(180deg)}
+.faq-a{padding:0 0 16px 0;color:var(--gray);font-size:.88rem;line-height:1.7;display:none}
+.faq-item.open .faq-a{display:block}
+
+/* Workout Builder */
+.workout-builder{max-width:900px;margin:0 auto}
+.workout-inner{padding:32px}
+.workout-form{display:flex;flex-direction:column;gap:20px}
+.workout-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.workout-field label{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.5px;color:var(--gold);margin-bottom:4px;font-weight:600}
+.workout-field select{width:100%;padding:10px 12px;background:var(--black);border:1px solid rgba(212,175,55,.2);border-radius:8px;color:var(--white);font-family:inherit;font-size:.9rem;outline:none;cursor:pointer;transition:border-color .3s}
+.workout-field select:focus{border-color:var(--gold)}
+.workout-field select option{background:var(--black-2)}
+.workout-result{margin-top:24px;display:none}
+.workout-result.active{display:block}
+.workout-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(212,175,55,.15)}
+.workout-day{margin-bottom:16px}
+.workout-day h4{font-family:var(--font-display);font-size:1rem;color:var(--gold);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid rgba(212,175,55,.15);text-transform:uppercase;letter-spacing:.5px}
+.workout-day .day-name{color:var(--white)}
+.workout-ex-table{width:100%;border-collapse:collapse;font-size:.85rem}
+.workout-ex-table th{padding:6px 8px;text-align:left;color:var(--gray);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid rgba(212,175,55,.1)}
+.workout-ex-table td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.04)}
+.workout-ex-table tr:last-child td{border-bottom:none}
+.workout-ex-table .ex-name{font-weight:600}
+.workout-ex-table .ex-rest{color:var(--gray);font-size:.8rem}
+.workout-print{text-align:center;margin-top:20px;display:none}
+.workout-print.active{display:block}
+
+/* Social Cards */
+.instagram-section{text-align:center}
+.instagram-card{display:inline-flex;align-items:center;gap:16px;padding:20px 28px;transition:all .3s;position:relative;z-index:0;border-radius:12px;background:var(--black-3);flex:1}
+.instagram-card:hover{transform:translateY(-4px)}
+.social-wrap{display:flex;justify-content:space-between;align-items:stretch;gap:16px}
+.card-wrap .instagram-card:first-child::before{content:'';position:absolute;inset:-2px;border-radius:inherit;background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);z-index:-1;opacity:.7;transition:opacity .3s}
+.card-wrap .instagram-card:first-child:hover::before{opacity:1}
+.card-wrap .instagram-card:last-child::before{content:'';position:absolute;inset:-2px;border-radius:inherit;background:#1877F2;z-index:-1;opacity:.5;transition:opacity .3s}
+.card-wrap .instagram-card:last-child:hover::before{opacity:1}
+
+.instagram-avatar{width:64px;height:64px;border-radius:50%;background:var(--gold-gradient);display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0;overflow:hidden}
+.instagram-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.instagram-info h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.instagram-info p{font-size:.85rem;color:var(--gray);margin-bottom:8px}
+.instagram-info .btn{font-size:.8rem;padding:8px 20px}
+
+/* Footer */
+.footer{background:var(--black-2);border-top:1px solid rgba(212,175,55,.1);padding:60px 0 30px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px}
+.footer-col h4{font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:16px;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-col p,.footer-col a{font-size:.85rem;color:var(--gray);display:block;margin-bottom:8px;transition:color .3s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,.05);font-size:.8rem;color:var(--gray)}
+
+/* Cart Sidebar */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:2000;opacity:0;pointer-events:none;transition:opacity .4s}
+.cart-overlay.open{opacity:1;pointer-events:auto}
+.cart-sidebar{position:fixed;top:0;right:-400px;width:100%;max-width:400px;height:100vh;background:var(--black-2);z-index:2001;transition:right .4s ease;display:flex;flex-direction:column;border-left:1px solid rgba(212,175,55,.15)}
+.cart-sidebar.open{right:0}
+body.rtl .cart-sidebar{right:auto;left:-400px;border-left:none;border-right:1px solid rgba(212,175,55,.15)}
+body.rtl .cart-sidebar.open{left:0}
+.cart-header{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid rgba(212,175,55,.15)}
+.cart-header h2{font-family:var(--font-display);font-size:1.3rem}
+.cart-close{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .3s;font-size:1.2rem}
+.cart-close:hover{background:rgba(212,175,55,.1)}
+.cart-items{flex:1;overflow-y:auto;padding:20px}
+.cart-empty{text-align:center;padding:40px 20px;color:var(--gray)}
+.cart-item{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.cart-item-img{width:56px;height:56px;border-radius:8px;background:var(--black-3);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-info h4{font-size:.9rem;font-weight:600;margin-bottom:2px}
+.cart-item-info .item-price{font-size:.8rem;color:var(--gold)}
+.cart-item-qty{display:flex;align-items:center;gap:8px;margin-top:6px}
+.cart-item-qty button{width:26px;height:26px;border-radius:50%;background:rgba(212,175,55,.1);display:flex;align-items:center;justify-content:center;font-weight:700;transition:background .3s;font-size:.8rem}
+.cart-item-qty button:hover{background:rgba(212,175,55,.3)}
+.cart-item-qty span{font-size:.9rem;font-weight:600;min-width:20px;text-align:center}
+.cart-item-remove{color:var(--gray);font-size:.8rem;cursor:pointer;transition:color .3s;align-self:flex-start;padding:4px}
+.cart-item-remove:hover{color:#ff4444}
+.cart-footer{padding:20px;border-top:1px solid rgba(212,175,55,.15)}
+.cart-total{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:700;margin-bottom:12px}
+.cart-total .total-amount{color:var(--gold)}
+.checkout-btn{width:100%;padding:14px;font-size:1rem;text-transform:uppercase;letter-spacing:1px}
+.checkout-form{display:none;flex-direction:column;gap:14px;padding:20px 0}
+.checkout-form.active{display:flex}
+.checkout-form h3{font-family:var(--font-display);font-size:1.1rem;margin-bottom:4px}
+.checkout-form label{font-size:.82rem;color:var(--gray);font-weight:500}
+.checkout-form input,.checkout-form select{background:var(--black);border:1px solid rgba(212,175,55,.15);border-radius:8px;padding:12px 14px;color:var(--white);font-family:inherit;font-size:.9rem;transition:border .3s;outline:none}
+.checkout-form input:focus,.checkout-form select:focus{border-color:var(--gold)}
+.checkout-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+body.rtl .checkout-form input,body.rtl .checkout-form select{font-family:var(--font-arabic)}
+.form-success{display:none;text-align:center;padding:30px 20px}
+.form-success.active{display:block}
+.form-success .check-icon{font-size:3rem;margin-bottom:12px}
+.form-success h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:8px}
+.form-success p{color:var(--gray);font-size:.9rem}
+
+/* Toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--gold-gradient);color:var(--black);padding:14px 28px;border-radius:50px;font-weight:600;font-size:.9rem;z-index:3000;opacity:0;transition:all .5s ease;pointer-events:none;white-space:nowrap;box-shadow:0 4px 20px rgba(212,175,55,.3)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Misc */
+.cart-count{font-size:.7rem;background:var(--gold);color:var(--black);width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-left:4px}
+
+/* Memberships */
+.membership-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.membership-card{padding:20px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;flex:1}
+.membership-card:hover{transform:translateY(-4px)}
+.membership-card.featured .badge{display:inline-block;background:var(--gold);color:var(--black);padding:3px 14px;border-radius:50px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.membership-card h3{font-family:var(--font-display);font-size:.9rem;font-weight:700;margin-bottom:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-light)}
+.membership-card .m-price{font-size:1.6rem;font-weight:900;color:var(--gold);margin-bottom:2px;line-height:1.2}
+.membership-card .m-period{font-size:.72rem;color:var(--gray);margin-bottom:12px;letter-spacing:1px;text-transform:uppercase}
+.membership-card .m-benefits{list-style:none;padding:0;margin:0 0 16px;width:100%}
+.membership-card .m-benefits li{padding:4px 0;font-size:.78rem;color:var(--gray);display:flex;align-items:center;justify-content:center;gap:6px}
+.membership-card .m-benefits li::before{content:'✓';color:var(--gold);font-weight:700}
+.membership-card .m-benefits li:last-child{border-bottom:none}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mobile-nav{display:block}
+  .section{padding:50px 0}
+  .section-title{font-size:1.8rem}
+  .hero{height:70vh;min-height:420px}
+  .hero-title{font-size:clamp(2rem,10vw,3.2rem)}
+  .hero-sub{max-width:100%;font-size:clamp(.85rem,2.5vw,1rem)}
+  .info-grid{grid-template-columns:1fr 1fr}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .coaches-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .membership-grid{grid-template-columns:1fr 1fr}
+  .social-wrap{flex-direction:column}
+  .instagram-card{padding:16px 20px}
+  .cart-sidebar{max-width:100%}
+  .checkout-form .form-row{grid-template-columns:1fr}
+  .marquee-letter{font-size:clamp(1.4rem,4vw,2.5rem);padding:0 4px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .section-title{font-size:1.4rem;letter-spacing:3px}
+  .hero{height:60vh;min-height:360px}
+  .hero-title{font-size:clamp(1.6rem,8vw,2.2rem);letter-spacing:3px}
+  .hero-actions{gap:10px}
+  .hero-actions .btn{font-size:.85rem;padding:10px 20px}
+  .hero-badge{font-size:.7rem;letter-spacing:2px;padding:4px 14px}
+  .info-grid{grid-template-columns:1fr}
+  .products-grid{grid-template-columns:1fr}
+  .membership-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .promo-bar{font-size:.7rem;padding:6px 10px;gap:4px}
+  .promo-sep,.promo-bar span:not(:first-child){display:none}
+  .logo-img{height:32px;max-width:130px}
+  .header-inner{padding:0 12px;height:56px}
+  .marquee-letter{font-size:clamp(1.2rem,3.5vw,1.8rem);padding:0 3px}
+  .instagram-card{padding:12px 16px;gap:10px;flex-wrap:nowrap}
+  .instagram-avatar{width:48px;height:48px}
+  .instagram-info h3{font-size:.95rem}
+  .instagram-info p{font-size:.78rem}
+  .instagram-info .btn{font-size:.75rem;padding:6px 14px}
+  .coach-avatar{height:200px;font-size:3.5rem}
+  .coach-body{padding:16px}
+  .testimonial-card{padding:16px}
+  .info-card{padding:16px}
+  .footer{padding:40px 0 20px}
+  .footer-grid{gap:24px}
+  .cart-item{gap:8px}
+  .cart-item-img{width:44px;height:44px}
+  .workout-row{grid-template-columns:1fr}
+  .toast{white-space:normal;max-width:90vw;padding:12px 20px;font-size:.85rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .hero-title .hl{opacity:1;transform:none}
+}
+/* Print Styles */
+@media print{body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+
+<div class="test-anim"></div>
+
+<!-- Promo Bar -->
+<div class="promo-bar" data-i18n="promo"><span>📍</span> Chéraga, vers GARDEN CITY <span class="promo-sep">|</span> <span>📞</span> 0554 67 22 22 <span class="promo-sep">|</span> <span>🕐</span> 6h-23h · 7j/7</div>
+
+<!-- Header -->
+<header class="header">
+<div class="header-inner">
+<a href="#" class="logo">
+<img class="logo-img" src="assets/images/logo.png" alt="BodyGlad">
+</a>
+<nav class="nav">
+<div class="nav-links" style="display:flex;align-items:center;gap:2px">
+<a href="#memberships" class="nav-link" data-i18n="nav-memberships">Memberships</a>
+<a href="#workout" class="nav-link" data-i18n="nav-programs">Programs</a>
+<a href="#products" class="nav-link" data-i18n="nav-products">Products</a>
+<a href="#coaches" class="nav-link" data-i18n="nav-coaches">Coaches</a>
+<a href="#about" class="nav-link" data-i18n="nav-about">About</a>
+<a href="#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
+</div>
+<div class="lang-switcher">
+<button class="lang-btn active" data-lang="en">EN</button>
+<button class="lang-btn" data-lang="fr">FR</button>
+<button class="lang-btn" data-lang="ar">AR</button>
+</div>
+<button class="cart-btn" onclick="toggleCart()" aria-label="Cart">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+<span class="cart-badge" id="cartBadge">0</span>
+</button>
+<div class="hamburger" onclick="toggleMobile()">
+<span></span><span></span><span></span>
+</div>
+</nav>
+</div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+<a href="#memberships" class="nav-link" data-i18n="nav-memberships" onclick="closeMobile()">Memberships</a>
+<a href="#workout" class="nav-link" data-i18n="nav-programs" onclick="closeMobile()">Programs</a>
+<a href="#products" class="nav-link" data-i18n="nav-products" onclick="closeMobile()">Products</a>
+<a href="#coaches" class="nav-link" data-i18n="nav-coaches" onclick="closeMobile()">Coaches</a>
+<a href="#about" class="nav-link" data-i18n="nav-about" onclick="closeMobile()">About</a>
+<a href="#contact" class="nav-link" data-i18n="nav-contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="about">
+<video class="hero-video" autoplay muted loop playsinline poster="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='720'><rect fill='%23000' width='100%25' height='100%25'/></svg>">
+<source src="assets/video/hero-bg.mp4" type="video/mp4">
+</video>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div class="hero-badge" data-i18n="hero-badge">#1 Gym in Algiers</div>
+<p class="hero-sub" data-i18n="hero-sub">N°1 Fitness à Alger — Équipements Premium, Coachs d'Élite, Ambiance Électrique. Rejoignez l'élite.</p>
+<div class="hero-actions">
+<a href="#memberships" class="btn btn-gold" data-i18n="hero-cta1">Commencer</a>
+<a href="#contact" class="btn btn-outline" data-i18n="hero-cta2">Nous Contacter</a>
+</div>
+</div>
+</section>
+
+<!-- Marquee -->
+<section class="marquee-section">
+<article>
+<div>
+<ul class="animate-marquee">
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+</ul>
+<ul class="animate-marquee-reverse">
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter fill">B</li><li class="marquee-letter fill">O</li><li class="marquee-letter fill">D</li><li class="marquee-letter fill">Y</li><li class="marquee-letter outline">G</li><li class="marquee-letter outline">L</li><li class="marquee-letter outline">A</li><li class="marquee-letter outline">D</li><li class="marquee-letter star">✦</li>
+</ul>
+</div>
+</article>
+<article>
+<div>
+<ul class="animate-marquee-invert">
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+</ul>
+<ul class="animate-marquee-invert-reverse">
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+<li class="marquee-letter outline">B</li><li class="marquee-letter outline">O</li><li class="marquee-letter outline">D</li><li class="marquee-letter outline">Y</li><li class="marquee-letter fill">G</li><li class="marquee-letter fill">L</li><li class="marquee-letter fill">A</li><li class="marquee-letter fill">D</li><li class="marquee-letter star">✦</li>
+</ul>
+</div>
+</article>
+</section>
+
+<!-- Information -->
+<section class="section" id="contact">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient" data-i18n="info-title">INFORMATION</span></h2>
+<p class="section-subtitle" data-i18n="info-sub">Tout ce que vous devez savoir sur BodyGlad</p>
+<div class="info-grid">
+<div class="card-wrap"><div class="info-card card-inner">
+<div class="info-icon">📞</div>
+<h3 data-i18n="info-phone-title">Contact</h3>
+<p><span data-i18n="info-phone-text">0554 67 22 22</span><span data-i18n="info-email-text">bodyglad@gmail.com</span></p>
+</div></div>
+<div class="card-wrap"><div class="info-card card-inner">
+<div class="info-icon">📍</div>
+<h3 data-i18n="info-address-title">Address</h3>
+<p data-i18n="info-address-text"><span>Chéraga, vers GARDEN CITY</span><span>Alger, Algérie</span></p>
+</div></div>
+</div>
+</section>
+
+<!-- Memberships -->
+<section class="section" id="memberships">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient" data-i18n="memberships-title">ABONNEMENTS</span></h2>
+<p class="section-subtitle" data-i18n="memberships-sub">Choisissez la formule qui vous correspond</p>
+<div class="membership-grid">
+<div class="card-wrap"><div class="membership-card card-inner">
+<h3 data-i18n="m-1x-title">1x / Semaine</h3>
+<div class="m-price" data-i18n="m-1x-price">2,000 DA</div>
+<div class="m-period" data-i18n="m-1x-period">4 séances / mois</div>
+<ul class="m-benefits">
+<li data-i18n="m-1x-benefit1">Accès libre aux équipements</li>
+<li data-i18n="m-1x-benefit2">Salle de cardio</li>
+</ul>
+</div></div>
+<div class="card-wrap"><div class="membership-card card-inner">
+<h3 data-i18n="m-2x-title">2x / Semaine</h3>
+<div class="m-price" data-i18n="m-2x-price">2,300 DA</div>
+<div class="m-period" data-i18n="m-2x-period">8 séances / mois</div>
+<ul class="m-benefits">
+<li data-i18n="m-2x-benefit1">Accès libre aux équipements</li>
+<li data-i18n="m-2x-benefit2">Salle de cardio</li>
+<li data-i18n="m-2x-benefit3">Vestiaires & douches</li>
+</ul>
+</div></div>
+<div class="card-wrap"><div class="membership-card featured card-inner">
+<span class="badge" data-i18n="m-popular">Le plus populaire</span>
+<h3 data-i18n="m-3x-title">3x / Semaine</h3>
+<div class="m-price" data-i18n="m-3x-price">3,200 DA</div>
+<div class="m-period" data-i18n="m-3x-period">12 séances / mois</div>
+<ul class="m-benefits">
+<li data-i18n="m-3x-benefit1">Accès libre aux équipements</li>
+<li data-i18n="m-3x-benefit2">Salle de cardio & cours</li>
+<li data-i18n="m-3x-benefit3">Vestiaires & douches</li>
+</ul>
+</div></div>
+<div class="card-wrap"><div class="membership-card card-inner">
+<h3 data-i18n="m-4x-title">4x / Semaine</h3>
+<div class="m-price" data-i18n="m-4x-price">3,500 DA</div>
+<div class="m-period" data-i18n="m-4x-period">16 séances / mois</div>
+<ul class="m-benefits">
+<li data-i18n="m-4x-benefit1">Accès libre aux équipements</li>
+<li data-i18n="m-4x-benefit2">Cours collectifs inclus</li>
+<li data-i18n="m-4x-benefit3">Vestiaires & douches</li>
+</ul>
+</div></div>
+<div class="card-wrap"><div class="membership-card card-inner">
+<h3 data-i18n="m-open-title">OPEN</h3>
+<div class="m-price" data-i18n="m-open-price">3,900 DA</div>
+<div class="m-period" data-i18n="m-open-period">30 séances / mois</div>
+<ul class="m-benefits">
+<li data-i18n="m-open-benefit1">Accès illimité tout compris</li>
+<li data-i18n="m-open-benefit2">Cours collectifs & coaching</li>
+<li data-i18n="m-open-benefit3">Vestiaires & douches</li>
+</ul>
+</div></div>
+</div>
+
+<!-- Products -->
+<section class="section" id="products">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient" data-i18n="products-title">Nos Produits</span></h2>
+<p class="section-subtitle" data-i18n="products-sub">Suppléments et équipements fitness de qualité</p>
+<div class="products-grid" id="productsGrid">
+<div class="card-wrap"><div class="product-card card-inner" data-id="1" data-price="6700" data-name="100% Whey Concentrate">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/100-whey-concentrate.jpg" alt="100% Whey Concentrate"></div>
+<div class="product-body">
+<h3>100% Whey Concentrate</h3>
+<p class="desc">Whey protéine concentrée - 1kg</p>
+<p class="price">6,700 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(1)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="2" data-price="7400" data-name="ISOWHEY BLACK">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/isowhey-black.jpg" alt="ISOWHEY BLACK"></div>
+<div class="product-body">
+<h3>ISOWHEY BLACK</h3>
+<p class="desc">Whey isolée premium - 1kg</p>
+<p class="price">7,400 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(2)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="3" data-price="4700" data-name="Creatine Creapure">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/creatine-creapure.jpg" alt="Creatine Creapure"></div>
+<div class="product-body">
+<h3>Creatine Creapure</h3>
+<p class="desc">Créatine allemande haute pureté - 300g</p>
+<p class="price">4,700 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(3)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="4" data-price="3500" data-name="CREATINE MONOHYDRATE">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/creatine-monohydrate.jpg" alt="CREATINE MONOHYDRATE"></div>
+<div class="product-body">
+<h3>CREATINE MONOHYDRATE</h3>
+<p class="desc">Créatine monohydrate pure - 500g</p>
+<p class="price">3,500 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(4)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="5" data-price="5400" data-name="CREA CAPS">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/crea-caps.jpg" alt="CREA CAPS"></div>
+<div class="product-body">
+<h3>CREA CAPS</h3>
+<p class="desc">Créatine en gélules - 120 caps</p>
+<p class="price">5,400 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(5)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="6" data-price="3900" data-name="CARBORN">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/carborn.jpg" alt="CARBORN"></div>
+<div class="product-body">
+<h3>CARBORN</h3>
+<p class="desc">Gainer premium prise de masse - 2kg</p>
+<p class="price">3,900 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(6)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="7" data-price="3500" data-name="ARGININE">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/arginine.jpg" alt="ARGININE"></div>
+<div class="product-body">
+<h3>ARGININE</h3>
+<p class="desc">L-Arginine pour flux sanguin - 300g</p>
+<p class="price">3,500 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(7)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="8" data-price="3700" data-name="100% GLUTAMINE">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/glutamine.jpg" alt="100% GLUTAMINE"></div>
+<div class="product-body">
+<h3>100% GLUTAMINE</h3>
+<p class="desc">L-Glutamine pure - 300g</p>
+<p class="price">3,700 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(8)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="9" data-price="3900" data-name="CITRULLINE MALATE">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/citrulline-malate.jpg" alt="CITRULLINE MALATE"></div>
+<div class="product-body">
+<h3>CITRULLINE MALATE</h3>
+<p class="desc">Citrulline Malate pour endurance - 200g</p>
+<p class="price">3,900 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(9)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="10" data-price="2900" data-name="ACETYL-L-CARNITINE">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/acetyl-l-carnitine.jpg" alt="ACETYL-L-CARNITINE"></div>
+<div class="product-body">
+<h3>ACETYL-L-CARNITINE</h3>
+<p class="desc">L-Carnitine pour brûler les graisses - 60 caps</p>
+<p class="price">2,900 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(10)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="11" data-price="5400" data-name="MCT OIL C8">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/mct-oil-c8.jpg" alt="MCT OIL C8"></div>
+<div class="product-body">
+<h3>MCT OIL C8</h3>
+<p class="desc">Huile MCT pure C8 - 500ml</p>
+<p class="price">5,400 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(11)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+<div class="card-wrap"><div class="product-card card-inner" data-id="12" data-price="2200" data-name="SHAKER REBORN INOX">
+<div class="product-img"><img loading="lazy" 
+src="assets/images/products/shaker-reborn.jpg" alt="SHAKER REBORN INOX"></div>
+<div class="product-body">
+<h3>SHAKER REBORN INOX</h3>
+<p class="desc">Shaker inox noir premium</p>
+<p class="price">2,200 DZD</p>
+<button class="btn btn-gold btn-sm" onclick="addToCart(12)" data-i18n="prod-add">Ajouter au panier</button>
+</div>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- Coaches -->
+<section class="section" id="coaches">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient" data-i18n="coaches-title">Nos Coachs</span></h2>
+<p class="section-subtitle" data-i18n="coaches-sub">Des professionnels à votre écoute</p>
+<div class="coaches-grid" id="programs">
+<div class="card-wrap"><div class="coach-card card-inner">
+<div class="coach-avatar">💪<span class="flag">🇩🇿</span></div>
+<div class="coach-body">
+<h3>Coach Ahmed</h3>
+<p class="role" data-i18n="coach1-role">Expert en musculation & conditioning</p>
+<p data-i18n="coach1-bio">Plus de 10 ans d'expérience dans le coaching sportif. Spécialiste en prise de masse et transformation corporelle. Certifié International Fitness Association.</p>
+</div>
+</div></div>
+<div class="card-wrap"><div class="coach-card card-inner">
+<div class="coach-avatar">🏋️<span class="flag">🇫🇷</span></div>
+<div class="coach-body">
+<h3>Coach Massi</h3>
+<p class="role" data-i18n="coach2-role">Expert en CrossFit & HIIT</p>
+<p data-i18n="coach2-bio">Ancien athlète professionnel, spécialisé en entraînement fonctionnel et CrossFit. Coach certifié avec une approche moderne du fitness.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Workout Programs -->
+<section class="section" id="workout">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient" data-i18n="workout-title">PROGRAMMES</span></h2>
+<p class="section-subtitle" data-i18n="workout-sub">Générez votre programme d'entraînement personnalisé</p>
+<div class="workout-builder card-wrap" style="max-width:900px;margin:0 auto">
+<div class="workout-inner card-inner">
+<div class="workout-form">
+<div class="workout-row">
+<div class="workout-field">
+<label data-i18n="w-level">Niveau</label>
+<select id="wLevel"><option value="beginner">Débutant</option><option value="intermediate">Intermédiaire</option><option value="advanced">Avancé</option></select>
+</div>
+<div class="workout-field">
+<label data-i18n="w-goal">Objectif</label>
+<select id="wGoal"><option value="strength">Force</option><option value="hypertrophy">Prise de Masse</option><option value="fatloss">Perte de Poids</option><option value="endurance">Endurance</option></select>
+</div>
+<div class="workout-field">
+<label data-i18n="w-days">Jours / Semaine</label>
+<select id="wDays"><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option></select>
+</div>
+<div class="workout-field">
+<label data-i18n="w-weeks">Durée</label>
+<select id="wWeeks"><option value="4">4 sem.</option><option value="8" selected>8 sem.</option><option value="12">12 sem.</option></select>
+</div>
+</div>
+<button class="btn btn-gold" onclick="generateWorkout()" data-i18n="w-generate">Générer mon programme</button>
+</div>
+<div class="workout-result" id="workoutResult"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient" data-i18n="testimonials-title">Témoignages</span></h2>
+<p class="section-subtitle" data-i18n="testimonials-sub">Ce que nos membres disent de nous</p>
+<div class="testimonials-grid">
+<div class="card-wrap"><div class="testimonial-card card-inner">
+<div class="quote">"</div>
+<p data-i18n="testimonial1-text">BodyGlad a complètement transformé ma vision du fitness. Les coachs sont incroyables et l'ambiance est unique. Je recommande à 100% !</p>
+<div class="author">
+<div class="author-avatar">YK</div>
+<div class="author-info"><strong>Youcef K.</strong><span data-i18n="testimonial1-info">Membre depuis 6 mois</span></div>
+</div>
+</div></div>
+<div class="card-wrap"><div class="testimonial-card card-inner">
+<div class="quote">"</div>
+<p data-i18n="testimonial2-text">Le meilleur gym d'Alger. Équipements dernier cri, propreté irréprochable, et une communauté formidable. Je n'ai jamais été aussi motivé.</p>
+<div class="author">
+<div class="author-avatar">AM</div>
+<div class="author-info"><strong>Amine M.</strong><span data-i18n="testimonial2-info">Membre depuis 1 an</span></div>
+</div>
+</div></div>
+<div class="card-wrap"><div class="testimonial-card card-inner">
+<div class="quote">"</div>
+<p data-i18n="testimonial3-text">Grâce à Coach Ahmed, j'ai perdu 15kg en 4 mois. Un programme sur mesure et un suivi exceptionnel. BodyGlad c'est ma deuxième maison !</p>
+<div class="author">
+<div class="author-avatar">SB</div>
+<div class="author-info"><strong>Sara B.</strong><span data-i18n="testimonial3-info">Membre depuis 4 mois</span></div>
+</div>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- FAQs -->
+<section class="section">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient" data-i18n="faq-title">FAQs</span></h2>
+<p class="section-subtitle" data-i18n="faq-sub">Questions fréquemment posées</p>
+<div class="faq-list">
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq1-q">Quels sont les horaires d'ouverture ?</span><span class="icon-text">▼</span></button>
+<div class="faq-a" data-i18n="faq1-a">Nous sommes ouverts 7j/7 de 6h00 à 23h00. Le personnel est présent de 8h00 à 21h00 en semaine et de 9h00 à 18h00 le week-end.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq2-q">Combien coûte un abonnement ?</span><span class="icon-text">▼</span></button>
+<div class="faq-a" data-i18n="faq2-a">Nous proposons plusieurs formules : Pass Jour à 500 DZD, Pass Semaine à 2,000 DZD, et Abonnement Mensuel à 5,000 DZD. Contactez-nous pour nos offres annuelles.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq3-q">Proposez-vous des séances avec un coach ?</span><span class="icon-text">▼</span></button>
+<div class="faq-a" data-i18n="faq3-a">Absolument ! Nos coachs Ahmed et Massi proposent des séances individuelles et en groupe. Programme personnalisé selon vos objectifs.</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq4-q">Y a-t-il un parking disponible ?</span><span class="icon-text">▼</span></button>
+<div class="faq-a" data-i18n="faq4-a">Oui, un parking gratuit est disponible pour tous nos membres. L'accès se fait par l'entrée principale vers GARDEN CITY.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Instagram -->
+<section class="section instagram-section">
+<div class="container">
+<h2 class="section-title"><span class="gradient-text animate-gradient">@body_glad</span></h2>
+<p class="section-subtitle" data-i18n="insta-sub">Suivez-nous sur Instagram pour du contenu exclusif</p>
+<div class="card-wrap social-wrap">
+<a href="https://instagram.com/body_glad" target="_blank" rel="noopener noreferrer" class="instagram-card card-inner">
+<div class="instagram-avatar"><img src="assets/images/instagram-profile.jpg" alt="@body_glad"></div>
+<div class="instagram-info">
+<h3>@body_glad</h3>
+<p data-i18n="insta-followers">3,842 abonnés</p>
+<span class="btn btn-gold btn-sm" data-i18n="insta-btn">Suivre</span>
+</div>
+</a>
+<a href="https://www.facebook.com/BODY-GLAD-FITNESS-471483903388830" target="_blank" rel="noopener noreferrer" class="instagram-card card-inner">
+<div class="instagram-avatar"><img src="assets/images/facebook-profile.jpg" alt="BODY GLAD FITNESS"></div>
+<div class="instagram-info">
+<h3>BODY GLAD FITNESS</h3>
+<p>Facebook</p>
+<span class="btn btn-gold btn-sm">Suivre</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="contact-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-col">
+<h4>BodyGlad</h4>
+<p data-i18n="footer-desc">N°1 Fitness à Alger. Rejoignez la communauté qui vous fait progresser.</p>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer-links-title">Liens</h4>
+<a href="#memberships" data-i18n="nav-memberships">Memberships</a>
+<a href="#workout" data-i18n="nav-programs">Programs</a>
+<a href="#products" data-i18n="nav-products">Products</a>
+<a href="#coaches" data-i18n="nav-coaches">Coaches</a>
+<a href="#about" data-i18n="nav-about">About</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer-contact-title">Contact</h4>
+<a href="tel:0554672222">0554 67 22 22</a>
+<a href="mailto:bodyglad@gmail.com">bodyglad@gmail.com</a>
+<p>Chéraga, vers GARDEN CITY</p>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer-social-title">Suivez-nous</h4>
+<a href="https://instagram.com/body_glad" target="_blank" rel="noopener noreferrer">Instagram</a>
+<a href="https://www.facebook.com/BODY-GLAD-FITNESS-471483903388830" target="_blank" rel="noopener noreferrer">Facebook</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 BodyGlad. <span data-i18n="footer-rights">Tous droits réservés.</span></p>
+</div>
+</div>
+</footer>
+
+<!-- Cart Overlay -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+<div class="cart-header">
+<h2 data-i18n="cart-title">Votre Panier</h2>
+<button class="cart-close" onclick="toggleCart()">&times;</button>
+</div>
+<div class="cart-items" id="cartItems">
+<div class="cart-empty" id="cartEmpty" data-i18n="cart-empty">Votre panier est vide</div>
+</div>
+<div class="cart-footer" id="cartFooter" style="display:none">
+<div class="cart-total"><span data-i18n="cart-total">Total</span>: <span class="total-amount" id="cartTotal">0 DZD</span></div>
+<button class="btn btn-gold checkout-btn" id="checkoutBtn" onclick="showCheckout()" data-i18n="cart-checkout">Commander</button>
+<div class="checkout-form" id="checkoutForm">
+<h3 data-i18n="checkout-title">Informations de livraison</h3>
+<label data-i18n="checkout-name">Nom complet</label>
+<input type="text" id="checkoutName" placeholder="Votre nom" required>
+<label data-i18n="checkout-phone">Téléphone</label>
+<input type="tel" id="checkoutPhone" placeholder="0554 67 22 22" required>
+<div class="form-row">
+<div>
+<label data-i18n="checkout-wilaya">Wilaya</label>
+<select id="checkoutWilaya">
+<option value="Alger">Alger</option>
+<option value="Blida">Blida</option>
+<option value="Boumerdes">Boumerdes</option>
+<option value="Tipaza">Tipaza</option>
+<option value="Tizi Ouzou">Tizi Ouzou</option>
+<option value="Autre">Autre</option>
+</select>
+</div>
+<div>
+<label data-i18n="checkout-qty">Quantité</label>
+<select id="checkoutQty"></select>
+</div>
+</div>
+<label data-i18n="checkout-address">Adresse complète</label>
+<textarea id="checkoutAddress" rows="2" style="background:var(--black);border:1px solid rgba(212,175,55,.15);border-radius:8px;padding:12px 14px;color:var(--white);font-family:inherit;font-size:.9rem;outline:none;resize:vertical" placeholder="Ex: Rue 12, N°34, Chéraga"></textarea>
+<button class="btn btn-gold" onclick="submitOrder()" data-i18n="checkout-submit">Confirmer la commande</button>
+<button class="btn btn-outline btn-sm" onclick="hideCheckout()" style="margin-top:4px" data-i18n="checkout-back">Retour au panier</button>
+</div>
+<div class="form-success" id="formSuccess">
+<div class="check-icon">✅</div>
+<h3 data-i18n="success-title">Commande envoyée !</h3>
+<p data-i18n="success-text">Merci ! Votre commande a été envoyée. Nous vous contacterons dans les plus brefs délais.</p>
+<button class="btn btn-gold" onclick="closeCartAndReset()" style="margin-top:16px" data-i18n="success-close">Fermer</button>
+</div>
+</div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ========== NOTIFICATIONS (auto email - zero setup) ==========
+function sendOrderEmail(order){
+  fetch('https://formsubmit.co/ajax/mr.mouraddaas@gmail.com',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      _subject:'Nouvelle commande BodyGlad',
+      _cc:'bodyglad@gmail.com',
+      _captcha:'false',
+      name:order.name, phone:order.phone, wilaya:order.wilaya,
+      address:order.address, items:order.items, total:order.total + ' DZD'
+    })
+  }).catch(()=>{});
+}
+
+// ========== DATA ==========
+const products = {
+  1:{name:'100% Whey Concentrate',price:6700,img:'assets/images/products/100-whey-concentrate.jpg'},
+  2:{name:'ISOWHEY BLACK',price:7400,img:'assets/images/products/isowhey-black.jpg'},
+  3:{name:'Creatine Creapure',price:4700,img:'assets/images/products/creatine-creapure.jpg'},
+  4:{name:'CREATINE MONOHYDRATE',price:3500,img:'assets/images/products/creatine-monohydrate.jpg'},
+  5:{name:'CREA CAPS',price:5400,img:'assets/images/products/crea-caps.jpg'},
+  6:{name:'CARBORN',price:3900,img:'assets/images/products/carborn.jpg'},
+  7:{name:'ARGININE',price:3500,img:'assets/images/products/arginine.jpg'},
+  8:{name:'100% GLUTAMINE',price:3700,img:'assets/images/products/glutamine.jpg'},
+  9:{name:'CITRULLINE MALATE',price:3900,img:'assets/images/products/citrulline-malate.jpg'},
+  10:{name:'ACETYL-L-CARNITINE',price:2900,img:'assets/images/products/acetyl-l-carnitine.jpg'},
+  11:{name:'MCT OIL C8',price:5400,img:'assets/images/products/mct-oil-c8.jpg'},
+  12:{name:'SHAKER REBORN INOX',price:2200,img:'assets/images/products/shaker-reborn.jpg'}
+};
+
+let cart = JSON.parse(localStorage.getItem('bg_cart') || '[]');
+
+// ========== CART ==========
+function toggleCart(){
+  const ov=document.getElementById('cartOverlay'),s=document.getElementById('cartSidebar');
+  const o=ov.classList.toggle('open');s.classList.toggle('open');
+  document.body.style.overflow=o?'hidden':'';
+  if(!o){hideCheckout();document.getElementById('formSuccess').classList.remove('active')}
+}
+function addToCart(id){
+  const p=products[id];if(!p)return;
+  const ex=cart.find(i=>i.id===id);
+  if(ex)ex.qty=(ex.qty||1)+1;else cart.push({id,name:p.name,price:p.price,img:p.img,qty:1});
+  saveCart();renderCart();showToast('Ajouté au panier !');
+}
+function removeItem(id){cart=cart.filter(i=>i.id!==id);saveCart();renderCart();if(!cart.length)hideCheckout()}
+function changeQty(id,delta){
+  const item=cart.find(i=>i.id===id);if(!item)return;
+  item.qty=Math.max(1,(item.qty||1)+delta);
+  if(item.qty<1)removeItem(id);else{saveCart();renderCart()}
+}
+function saveCart(){localStorage.setItem('bg_cart',JSON.stringify(cart));updateBadge()}
+function updateBadge(){
+  const c=cart.reduce((a,i)=>a+(i.qty||1),0);
+  const b=document.getElementById('cartBadge');
+  if(b){b.textContent=c;b.style.display=c>0?'flex':'none'}
+}
+function renderCart(){
+  const el=document.getElementById('cartItems'),empty=document.getElementById('cartEmpty'),footer=document.getElementById('cartFooter');
+  const totalEl=document.getElementById('cartTotal');
+  if(!cart.length){
+    el.innerHTML='<div class="cart-empty" id="cartEmpty">Votre panier est vide</div>';
+    footer.style.display='none';updateBadge();return
+  }
+  let h='';let t=0;
+  const lang=document.documentElement.lang;
+  const curr=lang==='ar'?'د.ج':lang==='fr'?'DZD':'DZD';
+  cart.forEach(i=>{
+    const st=i.price*(i.qty||1);t+=st;
+    h+=`<div class="cart-item">
+      <div class="cart-item-img">${i.img||'📦'}</div>
+      <div class="cart-item-info">
+        <h4>${i.name}</h4>
+        <div class="item-price">${st.toLocaleString()} ${curr}</div>
+        <div class="cart-item-qty">
+          <button onclick="changeQty(${i.id},-1)">−</button>
+          <span>${i.qty||1}</span>
+          <button onclick="changeQty(${i.id},1)">+</button>
+        </div>
+      </div>
+      <button class="cart-item-remove" onclick="removeItem(${i.id})">🗑️</button>
+    </div>`;
+  });
+  el.innerHTML=h;
+  totalEl.textContent=`${t.toLocaleString()} ${curr}`;
+  footer.style.display='block';
+  updateBadge();
+  document.getElementById('checkoutQty').value=1;
+}
+function showCheckout(){
+  document.getElementById('checkoutBtn').style.display='none';
+  document.getElementById('checkoutForm').classList.add('active');
+  const qtySel=document.getElementById('checkoutQty');qtySel.innerHTML='';
+  const total=cart.reduce((a,i)=>a+i.qty,0);
+  for(let i=1;i<=total;i++){const o=document.createElement('option');o.value=i;o.textContent=i;qtySel.appendChild(o)}
+  qtySel.value=1;
+}
+function hideCheckout(){
+  document.getElementById('checkoutBtn').style.display='';
+  document.getElementById('checkoutForm').classList.remove('active');
+  document.getElementById('formSuccess').classList.remove('active');
+}
+function submitOrder(){
+  const name=document.getElementById('checkoutName').value.trim();
+  const phone=document.getElementById('checkoutPhone').value.trim();
+  const wilaya=document.getElementById('checkoutWilaya').value;
+  const qty=document.getElementById('checkoutQty').value;
+  const address=document.getElementById('checkoutAddress').value.trim();
+  if(!name||!phone||!address){showToast('Veuillez remplir tous les champs');return}
+  let items='';let t=0;
+  cart.forEach(i=>{const st=i.price*i.qty;t+=st;items+=`${i.name} x${i.qty} = ${st.toLocaleString()} DZD\n`});
+  const total=t.toLocaleString();
+  const msg=`Nouvelle commande BodyGlad\n\nClient: ${name}\nTél: ${phone}\nWilaya: ${wilaya}\nAdresse: ${address}\n\nArticles:\n${items}\nTotal: ${total} DZD\n---\nPaiement à la livraison`;
+  const subject=encodeURIComponent('Nouvelle commande BodyGlad');
+  const body=encodeURIComponent(msg);
+  window.location.href=`mailto:mr.mouraddaas@gmail.com?cc=bodyglad@gmail.com&subject=${subject}&body=${body}`;
+  sendOrderEmail({name,phone,wilaya,address,items,total});
+  document.getElementById('formSuccess').classList.add('active');
+  document.getElementById('checkoutForm').classList.remove('active');
+  cart=[];saveCart();renderCart();
+}
+function closeCartAndReset(){toggleCart();document.getElementById('formSuccess').classList.remove('active');}
+
+// ========== TOAST ==========
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._to);t._to=setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// ========== FAQ ==========
+function toggleFaq(btn){
+  const item=btn.parentElement;const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+// ========== MOBILE ==========
+function toggleMobile(){
+  const nav=document.getElementById('mobileNav'),h=document.querySelector('.hamburger');
+  nav.classList.toggle('open');h.classList.toggle('active');
+  document.body.style.overflow=nav.classList.contains('open')?'hidden':'';
+}
+function closeMobile(){
+  document.getElementById('mobileNav').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+  document.body.style.overflow='';
+}
+
+// ========== WORKOUT GENERATOR ==========
+const EXERCISE_POOL = {
+  chest:[
+    'Développé couché barre','Développé couché haltères','Développé incliné barre','Développé incliné haltères',
+    'Développé décliné barre','Écarté haltères','Écarté poulie haute','Écarté poulie basse',
+    'Pec-deck machine','Pompes','Pompes inclinées','Pompes déclinées','Pompes surélevées',
+    'Dips','Dips lestés','Cable crossover','Pull-over haltère','Smith machine développé',
+    'Développé jackhammer','One-arm push-up progression'
+  ],
+  back:[
+    'Soulevé de terre','Soulevé de terre sumo','Rowing barre','Rowing barre T','Rowing haltère un bras',
+    'Rowing machine assis','Traction pronation','Traction supination','Traction prise large',
+    'Traction neutre','Traction lestée','Tirage horizontal','Tirage vertical','Tirage poitrine',
+    'Pull-over haltère','Pull-down à la poulie','Rowing Yates','Face pull','Shrugs barre',
+    'Shrugs haltères','Deadlift roumain','Good morning'
+  ],
+  quads:[
+    'Squat barre','Squat avant','Squat gobelet','Squat sumo','Squat bulgare','Leg press 45°',
+    'Leg press horizontal','Hack squat','Presse à cuisses','Leg extension machine',
+    'Fentes avant barre','Fentes avant haltères','Fentes latérales','Fentes bulgares',
+    'Box squat','Pistol squat progression','Squat sautés','Machine adducteurs'
+  ],
+  hamstrings:[
+    'Leg curl allongé','Leg curl assis','Leg curl debout','Soulevé de terre roumain',
+    'Soulevé de terre jambes tendues','Nordic curl','Hyperextension','Reverse hyper',
+    'Glute ham raise','Bonjour','Kettlebell swing','Machine abducteurs'
+  ],
+  calves:[
+    'Mollets debout barre','Mollets debout machine','Mollets assis','Mollets presse',
+    'Mollets unilatéral','Jump rope','Box jump','Sauts verticaux'
+  ],
+  shoulders:[
+    'Développé militaire barre','Développé militaire haltères','Développé Arnold','Développé nuque',
+    'Élévation latérale haltères','Élévation latérale poulie','Élévation avant','Oiseau reverse',
+    'Oiseau incliné','Face pull','Row menton','Shrugs arrière','Planche latérale',
+    'Turkish get-up','OHP assis','Machine épaule','Pec-deck inversé'
+  ],
+  biceps:[
+    'Curl barre EZ','Curl barre droite','Curl haltères','Curl marteau','Curl incliné',
+    'Curl pupitre','Curl concentré','Curl poulie','Curl Zottman','Curl spider',
+    'Curl à la corde','Bayesian curl','Curl prise inverse','Preacher curl machine'
+  ],
+  triceps:[
+    'Pushdown poulie','Pushdown corde','Extension nuque haltère','Extension nuque barre EZ',
+    'Skull crusher','Dips triceps','Dips triceps lestés','Kickback triceps',
+    'Extension poulie haute','Barre au front','Close-grip bench press','Pompes diamant'
+  ],
+  abs:[
+    'Crunch','Crunch lesté','Crunch poulie','Crunch machine','Leg raise','Hanging leg raise',
+    'Gainage planche','Gainage latéral','Ab wheel','Dragon flag','Russian twist',
+    'Pallof press','Cable woodchop','Médecine ball slam','V-ups','Hollow body hold',
+    'Flutter kicks','Mountain climbers','Dead bug','Reverse crunch'
+  ],
+  cardio:[
+    'Jump rope','Burpees','Jumping jacks','High knees','Box jump','Battle ropes',
+    'Kettlebell swing','Medicine ball slam','Assault bike','Rowing machine','Ski erg',
+    'Sprint tapis','Sprint côte','Tire flip','Sled push','Sled drag',
+    'Thruster','Burpee broad jump','Plyo push-ups','Wall ball'
+  ],
+  fullbody:[
+    'Burpees','Kettlebell swing','Medicine ball slam','Tire flip','Sled push',
+    'Assault bike sprint','Rowing 500m','SkiErg sprint','Thruster','Wall ball'
+  ]
+};
+
+const GOAL_PRESETS = {
+  strength:{
+    compoudSets:[4,5,5], compoundReps:[5,5,6], compoundRest:'150s',
+    accSets:[3,4,4], accReps:[6,8,10], accRest:'90s',
+    repRange:'faible (3-6)',
+    tips:'Focalisez sur la progression de charge. Utilisez des séries lourdes avec repos complet.'
+  },
+  hypertrophy:{
+    compoudSets:[4,5,5], compoundReps:[8,10,12], compoundRest:'90s',
+    accSets:[3,4,4], accReps:[10,12,15], accRest:'60s',
+    repRange:'modéré (8-15)',
+    tips:'Concentrez-vous sur la tension musculaire. Tempo 2-0-2. Séries à 1-2 RIR (répétitions en réserve).'
+  },
+  fatloss:{
+    compoudSets:[4,4,5], compoundReps:[12,15,15], compoundRest:'45s',
+    accSets:[3,3,4], accReps:[12,15,20], accRest:'30s',
+    repRange:'élevé (12-20)',
+    tips:'Gardez le rythme. Réduisez le repos entre séries. Ajoutez du cardio en fin de séance 15-20 min.'
+  },
+  endurance:{
+    compoudSets:[3,4,4], compoundReps:[15,20,25], compoundRest:'30s',
+    accSets:[3,3,4], accReps:[15,20,30], accRest:'20s',
+    repRange:'très élevé (15-30)',
+    tips:'Travaillez en circuit si possible. Respiration contrôlée. Volume élevé, charge modérée.'
+  }
+};
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+
+function pick(arr, n, exclude=[]){
+  const pool=arr.filter(e=>!exclude.includes(e));
+  return shuffle([...pool]).slice(0,Math.min(n,pool.length));
+}
+
+function getExercisesForMuscle(muscle, level, n, exclude=[]){
+  const pool=EXERCISE_POOL[muscle]||[];
+  const filtered=pool.filter(e=>{
+    if(level==='beginner'&&(e.includes('lesté')||e.includes('lourd')||e.includes('snatch')||e==='Dragon flag'))return false;
+    if(level==='advanced'&&(e==='Crunch'||e==='Gainage planche'||e==='Pompes'))return false;
+    return true;
+  });
+  return pick(filtered,n,exclude);
+}
+
+function generateWorkout(){
+  const el=document.getElementById('workoutResult');
+  const level=document.getElementById('wLevel').value;
+  const goal=document.getElementById('wGoal').value;
+  const days=parseInt(document.getElementById('wDays').value);
+  const weeks=parseInt(document.getElementById('wWeeks').value);
+  const phase=weeks<=4?0:weeks<=8?1:2;
+  const preset=GOAL_PRESETS[goal];
+  const levelNames={beginner:'Débutant',intermediate:'Intermédiaire',advanced:'Avancé'};
+  const goalNames={strength:'Force',hypertrophy:'Prise de Masse',fatloss:'Perte de Poids',endurance:'Endurance'};
+  const weekMap={4:'4 sem.',8:'8 sem.',12:'12 sem.'};
+  const phaseLabels=['Phase 1 : Adaptation','Phase 2 : Développement','Phase 3 : Intensification'];
+  const weekLabels=['Semaine 1-4','Semaine 5-8','Semaine 9-12'];
+  const used={};
+
+  const S = (m,n,e)=>getExercisesForMuscle(m,level,n,used[m]||[]).map(x=>{if(!used[m])used[m]=[];used[m].push(x);return x});
+
+  const splits = {
+    2:[
+      {name:'Full Body A',focus:['chest','back','quads','core'],compounds:['chest','back'],accessories:['quads','core']},
+      {name:'Full Body B',focus:['hamstrings','shoulders','arms','core'],compounds:['shoulders','hamstrings'],accessories:['arms','core']}
+    ],
+    3:[
+      {name:'PUSH (Pectoraux · Épaules · Triceps)',focus:['chest','shoulders','triceps'],compounds:['chest','shoulders'],accessories:['triceps','core']},
+      {name:'PULL (Dos · Biceps · Core)',focus:['back','biceps','abs'],compounds:['back'],accessories:['biceps','abs']},
+      {name:'JAMBES (Quadriceps · Ischios · Mollets)',focus:['quads','hamstrings','calves'],compounds:['quads','hamstrings'],accessories:['calves','abs']}
+    ],
+    4:[
+      {name:'PUSH A (Pec · Épaules)',focus:['chest','shoulders','triceps','core'],compounds:['chest','shoulders'],accessories:['triceps','core']},
+      {name:'PULL A (Dos · Biceps)',focus:['back','biceps','abs'],compounds:['back'],accessories:['biceps','abs']},
+      {name:'PUSH B (Pec · Épaules · Triceps)',focus:['chest','shoulders','triceps','abs'],compounds:['chest','shoulders'],accessories:['triceps','abs']},
+      {name:'PULL B (Dos · Jambes · Core)',focus:['back','quads','hamstrings','core'],compounds:['back','quads'],accessories:['hamstrings','core']}
+    ],
+    5:[
+      {name:'POITRINE',focus:['chest'],compounds:['chest'],accessories:['shoulders','triceps']},
+      {name:'DOS',focus:['back'],compounds:['back'],accessories:['biceps','abs']},
+      {name:'JAMBES',focus:['quads','hamstrings','calves'],compounds:['quads','hamstrings'],accessories:['calves','abs']},
+      {name:'ÉPAULES',focus:['shoulders'],compounds:['shoulders'],accessories:['abs']},
+      {name:'BRAS',focus:['biceps','triceps'],compounds:[],accessories:['biceps','triceps','abs']}
+    ],
+    6:[
+      {name:'PUSH A (Pec · Épaules · Triceps)',focus:['chest','shoulders','triceps'],compounds:['chest','shoulders'],accessories:['triceps']},
+      {name:'PULL A (Dos · Biceps)',focus:['back','biceps'],compounds:['back'],accessories:['biceps','abs']},
+      {name:'JAMBES (Quadriceps · Ischios)',focus:['quads','hamstrings','calves'],compounds:['quads','hamstrings'],accessories:['calves','abs']},
+      {name:'PUSH B (Pec · Épaules · Triceps)',focus:['chest','shoulders','triceps'],compounds:['chest','shoulders'],accessories:['triceps','core']},
+      {name:'PULL B (Dos · Biceps · Core)',focus:['back','biceps','abs'],compounds:['back'],accessories:['biceps']},
+      {name:'JAMBES + CORE',focus:['quads','hamstrings','abs'],compounds:['quads','hamstrings'],accessories:['abs']}
+    ]
+  };
+
+  const split=splits[days];
+  const isHiit=goal==='fatloss'||goal==='endurance';
+  let html=`<div class="workout-header">
+    <div>
+      <strong style="color:var(--gold);font-size:1.1rem">${levelNames[level]}</strong>
+      <span style="color:var(--gray)"> · ${goalNames[goal]} · ${days}x/sem · ${weekMap[weeks]}</span>
+      <div style="font-size:.8rem;color:var(--gold);margin-top:2px">${phaseLabels[phase]} — ${weekLabels[phase]} · Répétitions ${preset.repRange}</div>
+    </div>
+    <button class="btn btn-gold btn-sm" onclick="printWorkout()">🖨️</button>
+  </div>
+  <div class="workout-tip" style="background:rgba(212,175,55,.08);padding:10px 14px;border-radius:8px;margin-bottom:20px;font-size:.82rem;color:var(--gray-light);border-left:3px solid var(--gold)">
+    💡 <strong style="color:var(--gold)">Conseil :</strong> ${preset.tips}
+  </div>`;
+
+  split.forEach((day,di)=>{
+    const cpd=day.compounds.flatMap(m=>S(m,2)).slice(0,2);
+    const acc=day.accessories.flatMap(m=>S(m,isHiit?2:3)).slice(0,4);
+    const ordered=isHiit?[...cpd,...acc]:[...cpd,...acc];
+    if(!ordered.length)return;
+
+    html+=`<div class="workout-day">
+      <h4>Jour ${di+1} : ${day.name}</h4>
+      <table class="workout-ex-table">
+        <thead><tr><th>Exercice</th><th>Séries</th><th>Répétitions</th><th>Repos</th></tr></thead>
+        <tbody>`;
+    ordered.forEach((ex,i)=>{
+      const isCompound=i<cpd.length;
+      const sets=isCompound?preset.compoudSets[phase]:preset.accSets[phase];
+      const reps=isCompound?preset.compoundReps[phase]:preset.accReps[phase];
+      const rest=isCompound?preset.compoundRest:preset.accRest;
+      html+=`<tr><td class="ex-name">${ex}</td><td>${sets}</td><td>${reps}</td><td class="ex-rest">${rest}</td></tr>`;
+    });
+    html+=`</tbody></table></div>`;
+  });
+
+  el.innerHTML=html;
+  el.classList.add('active');
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function printWorkout(){
+  const el=document.getElementById('workoutResult');
+  const content=el.innerHTML;
+  if(!content||!el.classList.contains('active')){showToast('Générez d\'abord un programme');return}
+  const w=window.open('','_blank','width=800,height=600');
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>BodyGlad - Programme</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Arial,sans-serif;color:#000;background:#fff;padding:40px;font-size:11pt;line-height:1.5}
+    .print-header{display:flex;align-items:center;gap:16px;padding-bottom:20px;margin-bottom:24px;border-bottom:3px solid #D4AF37}
+    .print-header img{height:44px;width:auto}
+    .print-header .info strong{font-size:18pt;display:block;color:#000}
+    .print-header .info span{font-size:9pt;color:#555}
+    .print-meta{margin-bottom:20px;font-size:10pt;color:#333}
+    .day{margin-bottom:20px}
+    .day h3{color:#D4AF37;font-size:13pt;padding-bottom:6px;margin-bottom:8px;border-bottom:1px solid #D4AF37;text-transform:uppercase;letter-spacing:.5px}
+    table{width:100%;border-collapse:collapse;font-size:10pt}
+    th{padding:6px 8px;text-align:left;color:#555;font-size:9pt;text-transform:uppercase;border-bottom:2px solid #ddd;letter-spacing:.5px}
+    td{padding:5px 8px;border-bottom:1px solid #eee}
+    td:first-child{font-weight:600}
+    .rest{color:#777;font-size:9pt}
+    .footer{text-align:center;margin-top:30px;padding-top:16px;border-top:1px solid #ddd;font-size:8pt;color:#999}
+    @media print{body{padding:0}@page{margin:1.5cm}}
+  </style></head><body>
+  <div class="print-header">
+    <img src="assets/images/logo.png" alt="BodyGlad" onerror="this.style.display='none'">
+    <div class="info"><strong>BodyGlad Gym</strong><span>📍 Chéraga, vers GARDEN CITY | 📞 0554 67 22 22 | 🕐 6h-23h · 7j/7</span></div>
+  </div>
+  <div class="print-meta">${document.querySelector('.workout-header div')?.innerHTML?.split('<button')[0]||''}</div>
+  ${content.replace(/<button[\s\S]*?<\/button>/g,'').replace(/<thead>[\s\S]*?<\/thead>/g,'')}
+  <div class="footer">Programme généré par BodyGlad Gym — www.bodyglad.dz</div>
+  <script>window.onload=function(){window.print();window.close()};<\/script>
+  </body></html>`);
+  w.document.close();
+}
+
+// ========== LANGUAGE ==========
+const i18n={
+  en:{
+    promo:'📍 Cheraga, near GARDEN CITY | 📞 0554 67 22 22 | 🕐 6AM-11PM · 7/7',
+    'nav-programs':'Programs','nav-memberships':'Memberships','nav-products':'Products','nav-coaches':'Coaches','nav-about':'About','nav-contact':'Contact','nav-daypass':'ABONNEMENTS',
+    'hero-badge':'#1 Gym in Algiers','hero-title':'PUSH BEYOND<br><span class="gold-text">YOUR LIMITS</span>',
+    'hero-sub':'N°1 Fitness in Algiers — Premium Equipment, Elite Coaches, Electric Atmosphere. Join the elite.',
+    'hero-cta1':'Get Started','hero-cta2':'Contact Us',
+    'memberships-title':'MEMBERSHIPS','memberships-sub':'Choose the plan that fits you best',
+    'm-1x-title':'1x / Week','m-1x-price':'2,000 DA','m-1x-period':'4 sessions / month','m-1x-benefit1':'Free equipment access','m-1x-benefit2':'Cardio room',
+    'm-2x-title':'2x / Week','m-2x-price':'2,300 DA','m-2x-period':'8 sessions / month','m-2x-benefit1':'Free equipment access','m-2x-benefit2':'Cardio room','m-2x-benefit3':'Locker rooms & showers',
+    'm-3x-title':'3x / Week','m-3x-price':'3,200 DA','m-3x-period':'12 sessions / month','m-3x-benefit1':'Free equipment access','m-3x-benefit2':'Cardio & classes','m-3x-benefit3':'Locker rooms & showers','m-popular':'Most Popular',
+    'm-4x-title':'4x / Week','m-4x-price':'3,500 DA','m-4x-period':'16 sessions / month','m-4x-benefit1':'Free equipment access','m-4x-benefit2':'Group classes included','m-4x-benefit3':'Locker rooms & showers',
+    'm-open-title':'OPEN','m-open-price':'3,900 DA','m-open-period':'30 sessions / month','m-open-benefit1':'Unlimited all-access','m-open-benefit2':'Group classes & coaching','m-open-benefit3':'Locker rooms & showers',
+    'm-signup':'Subscribe',
+    'workout-title':'WORKOUT PROGRAMS','workout-sub':'Generate your personalized training program',
+    'w-level':'Level','w-goal':'Goal','w-days':'Days / Week','w-weeks':'Duration','w-generate':'Generate my program',
+    'info-title':'INFORMATION','info-sub':'Everything you need to know about BodyGlad',
+    'info-hours-title':'Gym Hours','info-hours-text':'<span>Mon - Sun: 6:00 AM - 11:00 PM</span><span>7/7 - Unlimited access</span>',
+    'info-phone-title':'Contact','info-phone-text':'0554 67 22 22','info-email-text':'bodyglad@gmail.com',
+    'info-address-title':'Address','info-address-text':'<span>Cheraga, near GARDEN CITY</span><span>Algiers, Algeria</span>',
+    'products-title':'Our Products','products-sub':'Quality supplements and fitness equipment',
+    'prod1-desc':'Pure creatine monohydrate - 300g','prod2-desc':'Isolated whey protein - 500g','prod3-desc':'Explosive pre-workout - 250g','prod4-desc':'Premium mass gainer - 2kg','prod-add':'Add to cart',
+    'coaches-title':'Our Coaches','coaches-sub':'Professionals at your service',
+    'coach1-role':'Strength & Conditioning Expert','coach1-bio':'Over 10 years of coaching experience. Specialist in muscle building and body transformation. Certified by the International Fitness Association.',
+    'coach2-role':'CrossFit & HIIT Expert','coach2-bio':'Former professional athlete, specialized in functional training and CrossFit. Certified coach with a modern approach to fitness.',
+    'testimonials-title':'Testimonials','testimonials-sub':'What our members say about us',
+    'testimonial1-text':'BodyGlad completely transformed my view of fitness. The coaches are amazing and the atmosphere is unique. 100% recommended!',
+    'testimonial1-info':'Member for 6 months',
+    'testimonial2-text':'The best gym in Algiers. State-of-the-art equipment, spotless cleanliness, and a great community. I have never been more motivated.',
+    'testimonial2-info':'Member for 1 year',
+    'testimonial3-text':'Thanks to Coach Ahmed, I lost 15kg in 4 months. A tailored program and exceptional follow-up. BodyGlad is my second home!',
+    'testimonial3-info':'Member for 4 months',
+    'faq-title':'FAQs','faq-sub':'Frequently asked questions',
+    'faq1-q':'What are your opening hours?','faq1-a':'We are open 7/7 from 6:00 AM to 11:00 PM. Staff is present from 8:00 AM to 9:00 PM on weekdays and 9:00 AM to 6:00 PM on weekends.',
+    'faq2-q':'How much does a membership cost?','faq2-a':'We offer several plans: Day Pass 500 DZD, Week Pass 2,000 DZD, and Monthly Membership 5,000 DZD. Contact us for annual offers.',
+    'faq3-q':'Do you offer coaching sessions?','faq3-a':'Absolutely! Our coaches Ahmed and Massi offer individual and group sessions. Personalized program based on your goals.',
+    'faq4-q':'Is parking available?','faq4-a':'Yes, free parking is available for all members. Access is through the main entrance near GARDEN CITY.',
+    'insta-sub':'Follow us on Instagram for exclusive content','insta-followers':'3,842 followers','insta-btn':'Follow',
+    'footer-desc':'#1 Fitness in Algiers. Join the community that makes you progress.',
+    'footer-links-title':'Links','footer-contact-title':'Contact','footer-social-title':'Follow Us','footer-rights':'All rights reserved.',
+    'cart-title':'Your Cart','cart-empty':'Your cart is empty','cart-total':'Total','cart-checkout':'Order Now',
+    'checkout-title':'Delivery Information','checkout-name':'Full Name','checkout-phone':'Phone','checkout-wilaya':'Wilaya','checkout-qty':'Quantity','checkout-address':'Full Address','checkout-submit':'Confirm Order','checkout-back':'Back to cart',
+    'success-title':'Order Sent!','success-text':'Thank you! Your order has been sent. We will contact you shortly.','success-close':'Close'
+  },
+  fr:{
+    promo:'📍 Chéraga, vers GARDEN CITY | 📞 0554 67 22 22 | 🕐 6h-23h · 7j/7',
+    'nav-programs':'Programmes','nav-memberships':'Abonnements','nav-products':'Produits','nav-coaches':'Coachs','nav-about':'À propos','nav-contact':'Contact','nav-daypass':'ABONNEMENTS',
+    'hero-badge':'N°1 Gym à Alger','hero-title':'REPOUSSEZ<br><span class="gold-text">VOS LIMITES</span>',
+    'hero-sub':'N°1 Fitness à Alger — Équipements Premium, Coachs d\'Élite, Ambiance Électrique. Rejoignez l\'élite.',
+    'hero-cta1':'Commencer','hero-cta2':'Nous Contacter',
+    'memberships-title':'ABONNEMENTS','memberships-sub':'Choisissez la formule qui vous correspond',
+    'm-1x-title':'1x / Semaine','m-1x-price':'2,000 DA','m-1x-period':'4 séances / mois','m-1x-benefit1':'Accès libre aux équipements','m-1x-benefit2':'Salle de cardio',
+    'm-2x-title':'2x / Semaine','m-2x-price':'2,300 DA','m-2x-period':'8 séances / mois','m-2x-benefit1':'Accès libre aux équipements','m-2x-benefit2':'Salle de cardio','m-2x-benefit3':'Vestiaires & douches',
+    'm-3x-title':'3x / Semaine','m-3x-price':'3,200 DA','m-3x-period':'12 séances / mois','m-3x-benefit1':'Accès libre aux équipements','m-3x-benefit2':'Salle de cardio & cours','m-3x-benefit3':'Vestiaires & douches','m-popular':'Le plus populaire',
+    'm-4x-title':'4x / Semaine','m-4x-price':'3,500 DA','m-4x-period':'16 séances / mois','m-4x-benefit1':'Accès libre aux équipements','m-4x-benefit2':'Cours collectifs inclus','m-4x-benefit3':'Vestiaires & douches',
+    'm-open-title':'OPEN','m-open-price':'3,900 DA','m-open-period':'30 séances / mois','m-open-benefit1':'Accès illimité tout compris','m-open-benefit2':'Cours collectifs & coaching','m-open-benefit3':'Vestiaires & douches',
+    'm-signup':'S\'abonner',
+    'workout-title':'PROGRAMMES','workout-sub':'Générez votre programme d\'entraînement personnalisé',
+    'w-level':'Niveau','w-goal':'Objectif','w-days':'Jours / Semaine','w-weeks':'Durée','w-generate':'Générer mon programme',
+    'info-title':'INFORMATION','info-sub':'Tout ce que vous devez savoir sur BodyGlad',
+    'info-hours-title':'Horaires','info-hours-text':'<span>Lun - Dim: 6h00 - 23h00</span><span>7j/7 - Accès illimité</span>',
+    'info-phone-title':'Contact','info-phone-text':'0554 67 22 22','info-email-text':'bodyglad@gmail.com',
+    'info-address-title':'Adresse','info-address-text':'<span>Chéraga, vers GARDEN CITY</span><span>Alger, Algérie</span>',
+    'products-title':'Nos Produits','products-sub':'Suppléments et équipements fitness de qualité',
+    'prod1-desc':'Créatine monohydrate pure - 300g','prod2-desc':'Whey protéine isolée - 500g','prod3-desc':'Pré-entraînement explosif - 250g','prod4-desc':'Prise de masse premium - 2kg','prod-add':'Ajouter au panier',
+    'coaches-title':'Nos Coachs','coaches-sub':'Des professionnels à votre écoute',
+    'coach1-role':'Expert en musculation & conditioning','coach1-bio':'Plus de 10 ans d\'expérience dans le coaching sportif. Spécialiste en prise de masse et transformation corporelle. Certifié International Fitness Association.',
+    'coach2-role':'Expert en CrossFit & HIIT','coach2-bio':'Ancien athlète professionnel, spécialisé en entraînement fonctionnel et CrossFit. Coach certifié avec une approche moderne du fitness.',
+    'testimonials-title':'Témoignages','testimonials-sub':'Ce que nos membres disent de nous',
+    'testimonial1-text':'BodyGlad a complètement transformé ma vision du fitness. Les coachs sont incroyables et l\'ambiance est unique. Je recommande à 100% !',
+    'testimonial1-info':'Membre depuis 6 mois',
+    'testimonial2-text':'Le meilleur gym d\'Alger. Équipements dernier cri, propreté irréprochable, et une communauté formidable. Je n\'ai jamais été aussi motivé.',
+    'testimonial2-info':'Membre depuis 1 an',
+    'testimonial3-text':'Grâce à Coach Ahmed, j\'ai perdu 15kg en 4 mois. Un programme sur mesure et un suivi exceptionnel. BodyGlad c\'est ma deuxième maison !',
+    'testimonial3-info':'Membre depuis 4 mois',
+    'faq-title':'FAQs','faq-sub':'Questions fréquemment posées',
+    'faq1-q':'Quels sont les horaires d\'ouverture ?','faq1-a':'Nous sommes ouverts 7j/7 de 6h00 à 23h00. Le personnel est présent de 8h00 à 21h00 en semaine et de 9h00 à 18h00 le week-end.',
+    'faq2-q':'Combien coûte un abonnement ?','faq2-a':'Nous proposons plusieurs formules : Pass Jour à 500 DZD, Pass Semaine à 2,000 DZD, et Abonnement Mensuel à 5,000 DZD. Contactez-nous pour nos offres annuelles.',
+    'faq3-q':'Proposez-vous des séances avec un coach ?','faq3-a':'Absolument ! Nos coachs Ahmed et Massi proposent des séances individuelles et en groupe. Programme personnalisé selon vos objectifs.',
+    'faq4-q':'Y a-t-il un parking disponible ?','faq4-a':'Oui, un parking gratuit est disponible pour tous nos membres. L\'accès se fait par l\'entrée principale vers GARDEN CITY.',
+    'insta-sub':'Suivez-nous sur Instagram pour du contenu exclusif','insta-followers':'3,842 abonnés','insta-btn':'Suivre',
+    'footer-desc':'N°1 Fitness à Alger. Rejoignez la communauté qui vous fait progresser.',
+    'footer-links-title':'Liens','footer-contact-title':'Contact','footer-social-title':'Suivez-nous','footer-rights':'Tous droits réservés.',
+    'cart-title':'Votre Panier','cart-empty':'Votre panier est vide','cart-total':'Total','cart-checkout':'Commander',
+    'checkout-title':'Informations de livraison','checkout-name':'Nom complet','checkout-phone':'Téléphone','checkout-wilaya':'Wilaya','checkout-qty':'Quantité','checkout-address':'Adresse complète','checkout-submit':'Confirmer la commande','checkout-back':'Retour au panier',
+    'success-title':'Commande envoyée !','success-text':'Merci ! Votre commande a été envoyée. Nous vous contacterons dans les plus brefs délais.','success-close':'Fermer'
+  },
+  ar:{
+    promo:'📍 الشراقة، باتجاه جاردن سيتي | 📞 0554 67 22 22 | 🕐 6:00-23:00 · 7/7',
+    'nav-programs':'البرامج','nav-memberships':'العضويات','nav-products':'المنتجات','nav-coaches':'المدربون','nav-about':'من نحن','nav-contact':'اتصل بنا','nav-daypass':'الاشتراكات',
+    'hero-badge':'رقم 1 في الجزائر العاصمة','hero-title':'تجاوز<br><span class="gold-text">حدودك</span>',
+    'hero-sub':'رقم 1 في اللياقة بالجزائر العاصمة — معدات فاخرة، مدربون نخبة، أجواء كهربائية. انضم إلى النخبة.',
+    'hero-cta1':'ابدأ الآن','hero-cta2':'اتصل بنا',
+    'memberships-title':'العضويات','memberships-sub':'اختر الباقة التي تناسبك',
+    'm-1x-title':'1x / أسبوع','m-1x-price':'2,000 د.ج','m-1x-period':'4 حصص / شهر','m-1x-benefit1':'وصول حر للمعدات','m-1x-benefit2':'قاعة القلب',
+    'm-2x-title':'2x / أسبوع','m-2x-price':'2,300 د.ج','m-2x-period':'8 حصص / شهر','m-2x-benefit1':'وصول حر للمعدات','m-2x-benefit2':'قاعة القلب','m-2x-benefit3':'غرف تغيير الملابس',
+    'm-3x-title':'3x / أسبوع','m-3x-price':'3,200 د.ج','m-3x-period':'12 حصة / شهر','m-3x-benefit1':'وصول حر للمعدات','m-3x-benefit2':'قاعة القلب ودروس','m-3x-benefit3':'غرف تغيير الملابس','m-popular':'الأكثر طلباً',
+    'm-4x-title':'4x / أسبوع','m-4x-price':'3,500 د.ج','m-4x-period':'16 حصة / شهر','m-4x-benefit1':'وصول حر للمعدات','m-4x-benefit2':'دروس جماعية مشمولة','m-4x-benefit3':'غرف تغيير الملابس',
+    'm-open-title':'OPEN','m-open-price':'3,900 د.ج','m-open-period':'30 حصة / شهر','m-open-benefit1':'دخول غير محدود','m-open-benefit2':'دروس جماعية وتدريب','m-open-benefit3':'غرف تغيير الملابس',
+    'm-signup':'اشترك الآن',
+    'workout-title':'برامج التمرين','workout-sub':'قم بإنشاء برنامج تدريب مخصص لك',
+    'w-level':'المستوى','w-goal':'الهدف','w-days':'أيام / أسبوع','w-weeks':'المدة','w-generate':'إنشاء برنامجي',
+    'info-title':'معلومات','info-sub':'كل ما تحتاج معرفته عن BodyGlad',
+    'info-hours-title':'ساعات العمل','info-hours-text':'<span>الاثنين - الأحد: 6:00 - 23:00</span><span>7/7 - دخول غير محدود</span>',
+    'info-phone-title':'اتصل','info-phone-text':'0554 67 22 22','info-email-text':'bodyglad@gmail.com',
+    'info-address-title':'العنوان','info-address-text':'<span>الشراقة، باتجاه جاردن سيتي</span><span>الجزائر العاصمة، الجزائر</span>',
+    'products-title':'منتجاتنا','products-sub':'مكملات ومعدات لياقة بدنية عالية الجودة',
+    'prod1-desc':'كرياتين مونوهيدرات نقي - 300 جم','prod2-desc':'بروتين مصل اللبن المعزول - 500 جم','prod3-desc':'مكمل قبل التمرين - 250 جم','prod4-desc':'مكمل زيادة الوزن الفاخر - 2 كجم','prod-add':'أضف إلى السلة',
+    'coaches-title':'مدربونا','coaches-sub':'محترفون في خدمتك',
+    'coach1-role':'خبير في كمال الأجسام والتكييف','coach1-bio':'أكثر من 10 سنوات من الخبرة في التدريب الرياضي. متخصص في بناء العضلات وتحويل الجسم. معتمد من الاتحاد الدولي للياقة البدنية.',
+    'coach2-role':'خبير في الكروس فت والتدريب المتواتر','coach2-bio':'رياضي محترف سابق، متخصص في التدريب الوظيفي والكروس فت. مدرب معتمد بأسلوب حديث في اللياقة البدنية.',
+    'testimonials-title':'الشهادات','testimonials-sub':'ماذا يقول أعضاؤنا عنا',
+    'testimonial1-text':'لقد غير BodyGlad نظرتي تمامًا للياقة البدنية. المدربون رائعون والأجواء فريدة. أوصي به 100%!',
+    'testimonial1-info':'عضو منذ 6 أشهر',
+    'testimonial2-text':'أفضل صالة رياضية في الجزائر العاصمة. معدات متطورة، نظافة لا تشوبها شائبة، ومجتمع رائع. لم أكن أبدًا أكثر تحفيزًا.',
+    'testimonial2-info':'عضو منذ سنة',
+    'testimonial3-text':'بفضل المدرب أحمد، فقدت 15 كجم في 4 أشهر. برنامج مخصص ومتابعة استثنائية. BodyGlad هو بيتي الثاني!',
+    'testimonial3-info':'عضو منذ 4 أشهر',
+    'faq-title':'الأسئلة الشائعة','faq-sub':'الأسئلة المتداولة',
+    'faq1-q':'ما هي ساعات العمل؟','faq1-a':'نحن مفتوحون 7/7 من الساعة 6:00 صباحًا إلى 11:00 مساءً. الطاقم متواجد من 8:00 صباحًا إلى 9:00 مساءً في أيام الأسبوع ومن 9:00 صباحًا إلى 6:00 مساءً في عطلة نهاية الأسبوع.',
+    'faq2-q':'كم تكلفة الاشتراك؟','faq2-a':'نقدم عدة باقات: تذكرة اليوم 500 د.ج، تذكرة الأسبوع 2,000 د.ج، والاشتراك الشهري 5,000 د.ج. اتصل بنا للعروض السنوية.',
+    'faq3-q':'هل تقدمون جلسات تدريب مع مدرب؟','faq3-a':'بالتأكيد! يقدم مدربانا أحمد وماسي جلسات فردية وجماعية. برنامج مخصص حسب أهدافك.',
+    'faq4-q':'هل يوجد موقف سيارات؟','faq4-a':'نعم، موقف سيارات مجاني متاح لجميع الأعضاء. الدخول من الباب الرئيسي باتجاه جاردن سيتي.',
+    'insta-sub':'تابعنا على إنستغرام لمحتوى حصري','insta-followers':'3,842 متابع','insta-btn':'تابع',
+    'footer-desc':'اللياقة البدنية رقم 1 في الجزائر العاصمة. انضم إلى المجتمع الذي يطورك.',
+    'footer-links-title':'روابط','footer-contact-title':'اتصل','footer-social-title':'تابعنا','footer-rights':'جميع الحقوق محفوظة.',
+    'cart-title':'سلة التسوق','cart-empty':'سلة التسوق فارغة','cart-total':'المجموع','cart-checkout':'اطلب الآن',
+    'checkout-title':'معلومات التوصيل','checkout-name':'الاسم الكامل','checkout-phone':'الهاتف','checkout-wilaya':'الولاية','checkout-qty':'الكمية','checkout-address':'العنوان الكامل','checkout-submit':'تأكيد الطلب','checkout-back':'العودة إلى السلة',
+    'success-title':'تم إرسال الطلب!','success-text':'شكراً! تم إرسال طلبك. سنتصل بك قريباً.','success-close':'إغلاق'
+  }
+};
+
+function setLang(lang){
+  const dict=i18n[lang];
+  if(!dict)return;
+  document.documentElement.lang=lang;
+  if(lang==='ar'){document.body.classList.add('rtl');document.documentElement.dir='rtl'}
+  else{document.body.classList.remove('rtl');document.documentElement.dir='ltr'}
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  if(lang==='ar'){document.querySelectorAll('.gradient-text,.section-title,.hero-title,.marquee-letter,.btn').forEach(el=>el.style.fontFamily='var(--font-arabic)')}
+  else{document.querySelectorAll('[style*="font-family"]').forEach(el=>{if(el.style.fontFamily.includes('Kufi'))el.style.fontFamily=''})}
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;const val=dict[key];
+    if(val){if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=val;else el.innerHTML=val}
+  });
+  // Update product prices currency
+  const curr=lang==='ar'?'د.ج':'DZD';
+  document.querySelectorAll('.product-card').forEach(card=>{
+    const priceEl=card.querySelector('.price');
+    if(priceEl){const p=parseInt(card.dataset.price);if(p)priceEl.innerHTML=`${p.toLocaleString()} ${curr}`}
+  });
+  renderCart();
+  localStorage.setItem('bg_lang',lang);
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>setLang(btn.dataset.lang));
+});
+
+// ========== INIT ==========
+const savedLang=localStorage.getItem('bg_lang')||'fr';
+setLang(savedLang);
+renderCart();
+
+// ========== Scroll animations ==========
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)'}
+  });
+},{threshold:.1});
+document.querySelectorAll('.info-card,.membership-card,.product-card,.coach-card,.testimonial-card,.faq-item,.instagram-card,.workout-builder').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .6s ease,transform .6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
