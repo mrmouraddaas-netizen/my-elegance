@@ -957,7 +957,8 @@ function showPage(id){
   history.replaceState(null,'','#'+id);
 }
 function initPage(){
-  showPage('home');
+  const hash=location.hash.slice(1)||'home';
+  showPage(hash);
 }
 // Handle back/forward
 window.addEventListener('popstate',handleHashNav);
@@ -1049,7 +1050,7 @@ const products = {
   3:{name:'Sport Pro',price:32000,img:'assets/images/watches/sport-pro.jpg'},
   4:{name:'Diamond Series',price:120000,img:'assets/images/watches/diamond-series.jpg'},
   5:{name:'Minimalist Black',price:25000,img:'assets/images/watches/minimalist-black.jpg'},
-  6:{name:'Ocean Blue Diver',price:55000,img:'assets/images/watches/ocean-blue-diver.jpg'},
+   6:{name:'Ocean Blue Diver',price:55000,img:'assets/images/watches/ocean-blue.jpg'},
   7:{name:'Heritage Automatic',price:89000,img:'assets/images/watches/heritage-auto.jpg'},
   8:{name:'Urban Steel',price:38000,img:'assets/images/watches/urban-steel.jpg'},
   9:{name:'Rose Gold Lady',price:72000,img:'assets/images/watches/rose-gold.jpg'},
