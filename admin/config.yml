@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: mrmouraddaas-netizen/my-elegance
+  name: git-gateway
   branch: main
-  base_url: https://oauth.decapcms.org
-  auth_endpoint: auth
 
 media_folder: assets/images/watches
 public_folder: assets/images/watches
