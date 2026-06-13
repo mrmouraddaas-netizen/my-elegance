@@ -1164,7 +1164,7 @@ let cart = JSON.parse(localStorage.getItem('me_cart') || '[]');
 
 // ========== HELPERS ==========
 const fmt=n=>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
-const getI18n=k=>{const d=document.documentElement;return (window.i18n&&window.i18n[d.lang]&&window.i18n[d.lang][k])||k};
+const getI18n=k=>{const d=document.documentElement;return (i18n[d.lang]&&i18n[d.lang][k])||k};
 var _slc=0;
 function lockScroll(){
   _slc++;
