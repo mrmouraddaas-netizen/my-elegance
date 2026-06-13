@@ -705,8 +705,8 @@ body.rtl .product-detail-close{right:auto;left:12px}
 <button type="button" id="pdQtyPlus">+</button>
 </div>
 <div class="product-detail-actions">
-<button type="button" class="btn btn-gold" id="pdAddToCart">Add to Cart</button>
-<button type="button" class="btn btn-outline" onclick="closeProductDetail()">Continue Shopping</button>
+<button type="button" class="btn btn-gold" id="pdAddToCart" data-i18n="prod-add">Add to Cart</button>
+<button type="button" class="btn btn-outline" onclick="closeProductDetail()" data-i18n="continue-shopping">Continue Shopping</button>
 </div>
 </div>
 </div>
@@ -1403,7 +1403,8 @@ const i18n={
     'cart-title':'Your Cart','cart-empty':'Your cart is empty','cart-total':'Total','cart-checkout':'Order Now',
     'checkout-title':'Delivery Information','checkout-name':'Full Name','checkout-phone':'Phone','checkout-wilaya':'Wilaya','checkout-delivery-type':'Delivery Type','delivery-stop-desk':'Stop Desk (Pickup point)','delivery-home':'Home Delivery','delivery-cost-label':'Delivery fee','checkout-address':'Full Address','checkout-submit':'Confirm Order','checkout-back':'Back to cart',
     'summary-subtotal':'Subtotal','summary-delivery':'Delivery','summary-grand':'Total',
-    'success-title':'Order Sent!','success-text':'Thank you! Your order has been sent. We will contact you shortly.','success-close':'Close'
+    'success-title':'Order Sent!','success-text':'Thank you! Your order has been sent. We will contact you shortly.','success-close':'Close',
+    'continue-shopping':'Continue Shopping'
   },
   fr:{
     promo:'💎 Montres de Luxe Algérie | 📞 0554 67 22 22 | 🚚 Livraison partout en Algérie',
@@ -1452,7 +1453,8 @@ const i18n={
     'cart-title':'Votre Panier','cart-empty':'Votre panier est vide','cart-total':'Total','cart-checkout':'Commander',
     'checkout-title':'Informations de livraison','checkout-name':'Nom complet','checkout-phone':'Téléphone','checkout-wilaya':'Wilaya','checkout-delivery-type':'Type de livraison','delivery-stop-desk':'Stop Desk (Point relais)','delivery-home':'Livraison à domicile','delivery-cost-label':'Frais de livraison','checkout-address':'Adresse complète','checkout-submit':'Confirmer la commande','checkout-back':'Retour au panier',
     'summary-subtotal':'Sous-total','summary-delivery':'Livraison','summary-grand':'Total',
-    'success-title':'Commande envoyée !','success-text':'Merci ! Votre commande a été envoyée. Nous vous contacterons dans les plus brefs délais.','success-close':'Fermer'
+    'success-title':'Commande envoyée !','success-text':'Merci ! Votre commande a été envoyée. Nous vous contacterons dans les plus brefs délais.','success-close':'Fermer',
+    'continue-shopping':'Continuer vos achats'
   },
   ar:{
     promo:'💎 ساعات فاخرة الجزائر | 📞 0554 67 22 22 | 🚚 توصيل إلى جميع أنحاء الجزائر',
@@ -1501,7 +1503,8 @@ const i18n={
     'cart-title':'سلة التسوق','cart-empty':'سلة التسوق فارغة','cart-total':'المجموع','cart-checkout':'اطلب الآن',
     'checkout-title':'معلومات التوصيل','checkout-name':'الاسم الكامل','checkout-phone':'الهاتف','checkout-wilaya':'الولاية','checkout-delivery-type':'نوع التوصيل','delivery-stop-desk':'نقطة الاستلام (Stop Desk)','delivery-home':'توصيل إلى المنزل','delivery-cost-label':'رسوم التوصيل','checkout-address':'العنوان الكامل','checkout-submit':'تأكيد الطلب','checkout-back':'العودة إلى السلة',
     'summary-subtotal':'المجموع الفرعي','summary-delivery':'التوصيل','summary-grand':'المجموع',
-    'success-title':'تم إرسال الطلب!','success-text':'شكراً! تم إرسال طلبك. سنتصل بك قريباً.','success-close':'إغلاق'
+    'success-title':'تم إرسال الطلب!','success-text':'شكراً! تم إرسال طلبك. سنتصل بك قريباً.','success-close':'إغلاق',
+    'continue-shopping':'مواصلة التسوق'
   }
 };
 
