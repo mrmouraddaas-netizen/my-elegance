@@ -516,6 +516,38 @@ body.rtl .product-detail-close{right:auto;left:12px}
 }
 /* Print Styles */
 @media print{body{background:#fff;color:#000}}
+/* Landing Page */
+.landing-hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%);position:relative;overflow:hidden;padding:80px 20px 40px}
+.landing-hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(212,175,55,.08) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(212,175,55,.05) 0%,transparent 50%);animation:lpGlow 8s ease-in-out infinite alternate}
+@keyframes lpGlow{0%{transform:translate(0,0)}100%{transform:translate(-5%,-5%)}}
+.landing-content{position:relative;z-index:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:60px;max-width:1100px;width:100%}
+.landing-image{flex:0 0 320px;max-width:320px}
+.landing-image img{width:100%;height:auto;border-radius:20px;box-shadow:0 20px 60px rgba(212,175,55,.15),0 0 40px rgba(212,175,55,.05);transition:transform .5s}
+.landing-image img:hover{transform:scale(1.03)}
+.landing-text{flex:1;min-width:280px;max-width:550px}
+.landing-badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(212,175,55,.15);color:var(--gold);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+.landing-text h1{font-size:2.8rem;font-weight:800;line-height:1.2;margin-bottom:12px;background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.landing-text .lp-price{font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:12px}
+.landing-text .lp-desc{color:var(--gray);font-size:1.05rem;line-height:1.7;margin-bottom:24px}
+.landing-cta{display:flex;gap:12px;flex-wrap:wrap}
+.landing-cta .btn{padding:14px 32px;font-size:1rem;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:700;transition:all .3s;cursor:pointer;border:none}
+.landing-cta .btn-primary{background:var(--gold-gradient);color:var(--black);box-shadow:0 4px 20px rgba(212,175,55,.3)}
+.landing-cta .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,.4)}
+.landing-cta .btn-secondary{background:transparent;color:var(--gold);border:2px solid rgba(212,175,55,.3)}
+.landing-cta .btn-secondary:hover{border-color:var(--gold);background:rgba(212,175,55,.1)}
+.landing-features{display:flex;gap:24px;margin-top:28px;flex-wrap:wrap}
+.landing-features span{display:flex;align-items:center;gap:6px;color:var(--gray);font-size:.85rem}
+.landing-features span svg{width:16px;height:16px;fill:var(--gold);flex-shrink:0}
+.landing-page .landing-back{position:fixed;top:20px;left:20px;z-index:10;color:var(--gray);text-decoration:none;font-size:.88rem;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.05);backdrop-filter:blur(10px);transition:all .3s}
+.landing-page .landing-back:hover{color:var(--gold);background:rgba(212,175,55,.1)}
+@media(max-width:768px){
+  .landing-hero{padding:100px 16px 40px}
+  .landing-content{gap:30px}
+  .landing-image{flex:0 0 220px;max-width:220px}
+  .landing-text h1{font-size:2rem}
+  .landing-text .lp-price{font-size:1.5rem}
+  .landing-cta .btn{padding:12px 24px;font-size:.9rem}
+}
 </style>
 </head>
 <body>
@@ -819,6 +851,7 @@ body.rtl .product-detail-close{right:auto;left:12px}
 <div id="faq-page" class="page"></div>
 <div id="social-page" class="page"></div>
 <div id="contact-us-page" class="page"></div>
+<div id="landing-page" class="page"></div>
 
 <!-- Footer -->
 <footer class="footer" id="contact-footer">
@@ -988,6 +1021,11 @@ body.rtl .product-detail-close{right:auto;left:12px}
 // ========== PAGE NAVIGATION (SPA) ==========
 const PAGE_IDS = ['shop','about','gallery','testimonials','faq','social','contact-us'];
 function showPage(id){
+  if(id.startsWith('landing/')){
+    const pid=id.split('/')[1];
+    if(pid&&products[pid]){renderLandingPage(pid);return}
+  }
+  const pageMap={'about':1,'shop':1,'gallery':1,'testimonials':1,'faq':1,'social':1,'contact-us':1,'home':1};
   closeProductDetail();
   if(document.getElementById('galleryLightbox').classList.contains('active'))closeGalleryLightbox();
   closeMobile();closeFab();
@@ -1026,9 +1064,9 @@ function handleHashNav(){
 document.addEventListener('click',function(e){
   const link=e.target.closest('a[href^="#"]');
   if(!link)return;
-  const pageMap={'about':1,'shop':1,'gallery':1,'testimonials':1,'faq':1,'social':1,'contact-us':1,'home':1};
+  const pageMap={'about':1,'shop':1,'gallery':1,'testimonials':1,'faq':1,'social':1,'contact-us':1,'home':1,'landing':1};
   const hash=link.getAttribute('href').slice(1);
-  if(pageMap[hash]){
+  if(pageMap[hash]||hash.startsWith('landing/')){
     e.preventDefault();
     showPage(hash);
   }
@@ -1173,6 +1211,44 @@ async function loadProducts(){
     });
     renderProducts();
   }
+}
+
+// ========== LANDING PAGE ==========
+function renderLandingPage(id){
+  const p=products[id];if(!p){showPage('shop');return}
+  const lang=document.documentElement.lang;
+  const curr=lang==='ar'?'د.ج':'DZD';
+  const name=p['name_'+lang]||p.name;
+  const desc=p['desc_'+lang]||'';
+  const price=fmt(p.price)+' '+curr;
+  const img=p.img||'assets/images/watches/placeholder.jpg';
+  const el=document.getElementById('landing-page');
+  const wpNum='213554672222';
+  const wpMsg=encodeURIComponent('Hello! I am interested in: '+name+' ('+price+')');
+  const svgTruck='<svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>';
+  const svgShield='<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>';
+  const svgReturn='<svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>';
+  el.innerHTML='<a href="#shop" class="landing-back" onclick="showPage(\'shop\')">&larr; Back to Shop</a>'+
+    '<div class="landing-hero"><div class="landing-content">'+
+    '<div class="landing-image"><img src="'+img+'" alt="'+name+'"></div>'+
+    '<div class="landing-text">'+
+    '<div class="landing-badge">'+getI18n('prod-add')||'Featured Product'+'</div>'+
+    '<h1>'+name+'</h1>'+
+    '<div class="lp-price">'+price+'</div>'+
+    '<div class="lp-desc">'+desc+'</div>'+
+    '<div class="landing-cta">'+
+    '<a href="https://wa.me/'+wpNum+'?text='+wpMsg+'" target="_blank" rel="noopener" class="btn btn-primary">Order on WhatsApp</a>'+
+    '<button class="btn btn-secondary" onclick="addToCart('+id+');showToast(getI18n(\'prod-add\')||\'Added!\')">'+getI18n('prod-add')||'Add to Cart'+'</button>'+
+    '</div>'+
+    '<div class="landing-features">'+
+    '<span>'+svgTruck+' Delivery across Algeria</span>'+
+    '<span>'+svgShield+' Authentic products</span>'+
+    '<span>'+svgReturn+' Easy returns</span>'+
+    '</div></div></div></div>';
+  document.querySelectorAll('.page').forEach(pg=>pg.classList.remove('active'));
+  el.classList.add('active');
+  window.scrollTo({top:0});
+  history.replaceState(null,'','#landing/'+id);
 }
 
 // ========== YALIDINE DELIVERY// ========== YALIDINE DELIVERY ==========
@@ -1533,6 +1609,11 @@ function setLang(lang){
   });
   document.title={'en':'My Elegance - Luxury Watches Algeria','fr':'My Elegance - Montres de Luxe en Algérie','ar':'My Elegance - لوكس الجزائر'}[lang];
   renderCart();renderProducts();
+  const lp=document.getElementById('landing-page');
+  if(lp.classList.contains('active')){
+    const m=location.hash.match(/^#landing\/(\d+)/);
+    if(m&&products[m[1]])renderLandingPage(m[1])
+  }
   localStorage.setItem('me_lang',lang);
 }
 
